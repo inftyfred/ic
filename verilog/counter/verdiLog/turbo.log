@@ -1,0 +1,9 @@
+Command Line: /usr/synopsys/verdi/Verdi_O-2018.09-SP2/platform/LINUXAMD64/bin/Novas -ssf /home/infty/ic/verilog/counter/build/tb_counter.fsdb -2001 -sverilog /home/infty/ic/verilog/counter/tb/tb_counter.v /home/infty/ic/verilog/counter/src/counter.v /home/infty/ic/verilog/counter/src/timescale.v
+uname(Linux ubuntu 5.15.0-139-generic #149~20.04.1-Ubuntu SMP Wed Apr 16 08:29:56 UTC 2025 x86_64)
+type= DS_SCOPE element= 1 field= 1
+VERILOG tb_counter
+VERILOG u1
+-----
+second field= DebussyLib
+third field= counter
+au time 28.671495 2.070295 0.503293 delta 461996032 461996032 total 835514368 835514368

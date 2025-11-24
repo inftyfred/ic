@@ -1,0 +1,17 @@
+Command: /home/infty/ic/verilog/counter/build/simv +TESTNAME=basic_test +TIMEOUT=1000000 +FSDB=1 +WAVE_FILE=/home/infty/ic/verilog/counter/wave/wave_basic_test.fsdb -l /home/infty/ic/verilog/counter/logs/simulation_basic_test.log
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Nov 24 03:09 2025
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* : Create FSDB file 'tb_counter.fsdb'
+*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : End of traversing.
+You gotta the right result!
+$finish called from file "/home/infty/ic/verilog/counter/tb/tb_counter.v", line 20.
+$finish at simulation time                   70
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 70
+CPU Time:      0.160 seconds;       Data structure size:   0.0Mb
+Mon Nov 24 03:09:09 2025

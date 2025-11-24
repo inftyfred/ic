@@ -1,0 +1,43 @@
+Command: vcs -full64 +v2k -sverilog -fsdb +define+FSDB -debug_access+all -f /home/infty/ic/verilog/counter/build/filelist.f \
+-o /home/infty/ic/verilog/counter/build/simv -l /home/infty/ic/verilog/counter/build/compile.log \
+-LDFLAGS -Wl,--no-as-needed
+
+Warning-[DEBUG_DEP] Option will be deprecated
+  The option '-fsdb' will be deprecated in a future release.  Please use 
+  '-debug_acc+dmptf -debug_region+cell+encrypt' instead.
+
+                         Chronologic VCS (TM)
+       Version O-2018.09-SP2_Full64 -- Mon Nov 24 03:09:03 2025
+               Copyright (c) 1991-2018 by Synopsys Inc.
+                         ALL RIGHTS RESERVED
+
+This program is proprietary and confidential information of Synopsys Inc.
+and may be used and disclosed only as authorized in a license agreement
+controlling such use and disclosure.
+
+Parsing design file '/home/infty/ic/verilog/counter/tb/tb_counter.v'
+Parsing design file '/home/infty/ic/verilog/counter/src/counter.v'
+Parsing design file '/home/infty/ic/verilog/counter/src/timescale.v'
+Top Level Modules:
+       tb_counter
+No TimeScale specified
+Starting vcs inline pass...
+1 module and 0 UDP read.
+recompiling module tb_counter
+make[1]: Entering directory '/home/infty/ic/verilog/counter/csrc'
+rm -f _csrc*.so pre_vcsobj_*.so share_vcsobj_*.so
+if [ -x /home/infty/ic/verilog/counter/build/simv ]; then chmod -x /home/infty/ic/verilog/counter/build/simv; \
+fi
+g++  -o /home/infty/ic/verilog/counter/build/simv -no-pie    -Wl,-rpath-link=./ -Wl,-rpath='$ORIGIN'/simv.daidir/ \
+-Wl,-rpath=./simv.daidir/ -Wl,-rpath='$ORIGIN'/simv.daidir//scsim.db.dir  -LDFLAGS \
+-Wl,--no-as-needed -rdynamic  -Wl,-rpath=/usr/synopsys/vcs/O-2018.09-SP2/linux64/lib \
+-L/usr/synopsys/vcs/O-2018.09-SP2/linux64/lib   objs/amcQw_d.o   _8141_archive_1.so \
+SIM_l.o       rmapats_mop.o rmapats.o rmar.o rmar_nd.o  rmar_llvm_0_1.o rmar_llvm_0_0.o \
+-lzerosoft_rt_stubs -lvirsim -lerrorinf -lsnpsmalloc -lvfs    -lvcsnew -lsimprofile \
+-luclinative /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/vcs_tls.o   -Wl,-whole-archive \
+-lvcsucli -Wl,-no-whole-archive        _vcs_pli_stub_.o   /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/vcs_save_restore_new.o \
+/usr/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/pli.a -ldl  -lc -lm \
+-lpthread -ldl 
+/home/infty/ic/verilog/counter/build/simv up to date
+make[1]: Leaving directory '/home/infty/ic/verilog/counter/csrc'
+CPU time: .181 seconds to compile + .215 seconds to elab + .218 seconds to link
