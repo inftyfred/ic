@@ -23,12 +23,12 @@ used by makefile
 use:
 	make [commend]
 commend can be :
-	- compile
-	- run
-	- sim
-	- clean		: clean compile and run files
-	- cleanall  : clean all files(include sim files)
-	- help
+- compile
+- run
+- sim
+- clean		: clean compile and run files
+- cleanall  : clean all files(include sim files)
+- help
 
 
 
