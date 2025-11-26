@@ -18,13 +18,16 @@ class Array;
 
 	function void funcs();
 		int pos[$];
+		int tmp[$];
 		$display("the sum is %d", array.sum());
 		$display("the and is %d", array.and());
 		$display("the or is %d", array.or());
 		$display("the xor is %d", array.xor());
 		$display("the product is %d", array.product());
-//		$display("max value is %d", array.max());
-//		$display("min value is %d", array.min());
+		tmp = array.max();
+		$display("max value is %d", tmp[0]);
+		tmp = array.min();
+		$display("min value is %d", tmp[0]);
 
 		pos = array.find with (item == 7);
 		$display("pos : %d ? value : %d", pos[0], array[pos[0]]);
@@ -46,8 +49,7 @@ endclass:Array
 
 module top();
 	initial begin
-		$display("test");
-	//	Array array1 = new();
-	//	array1.funcs();
+		Array array1 = new();
+		array1.funcs();
 	end
 endmodule

@@ -1,4 +1,0 @@
-#!/bin/bash
-vcs -R -full64 +v2k -fsdb +define+FSDB -sverilog -f file.f -l run.log -LDFLAGS -Wl,--no-as-needed
-#verdi
-

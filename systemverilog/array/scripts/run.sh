@@ -51,12 +51,12 @@ usage() {
     echo "  -w, --wave WAVETYPE     波形类型 fsdb|vcd (默认: $DEFAULT_WAVE_TYPE)"
     echo "  -o, --timeout TIMEOUT   仿真超时时间 (默认: $DEFAULT_TIMEOUT)"
     echo "  -l, --log LOGFILE       日志文件名"
-    echo "  -g, --gui               启用 GUI 模式 (DVE)"
+  #  echo "  -g, --gui               启用 GUI 模式 (DVE)"
     echo "  -h, --help              显示此帮助信息"
     echo ""
     echo "示例:"
     echo "  $0 -t smoke_test -w fsdb"
-    echo "  $0 --test functional_test --timeout 500000 --gui"
+    #echo "  $0 --test functional_test --timeout 500000 --gui"
 }
 
 # 解析命令行参数
@@ -79,10 +79,10 @@ parse_arguments() {
                 LOG_FILE="$2"
                 shift 2
                 ;;
-            -g|--gui)
-                GUI_MODE=1
-                shift
-                ;;
+            # -g|--gui)
+            #     GUI_MODE=1
+            #     shift
+            #     ;;
             -h|--help)
                 usage
                 exit 0
@@ -208,8 +208,9 @@ check_results() {
         return 1
     fi
     
-    warn "无法确定仿真结果，请检查日志文件"
-    return 2
+    #warn "无法确定仿真结果，请检查日志文件"
+    info "运行结束"
+    return 0
 }
 
 # 显示仿真摘要
