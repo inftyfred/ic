@@ -10,11 +10,15 @@ ic study
 
 --systemverilog
 
---verilog
-	--src
-	--tb
-	--makefile
-	--scripts
+..verilog
+
+	.src
+
+	.tb
+
+	.makefile
+
+	.scripts
 
 ## scripts
 
