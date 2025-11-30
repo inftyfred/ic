@@ -1,0 +1,5 @@
+debRestoreSession /home/infty/ic/verilog/dp_ram/verdiLog/novas_autosave.ses
+wvSetCursor -win $_nWave2 4052.233157 -snap {("u_syncfifo" 2)}
+wvSetCursor -win $_nWave2 7803.557911 -snap {("u_syncfifo" 6)}
+srcDeselectAll -win $_nTrace1
+debExit

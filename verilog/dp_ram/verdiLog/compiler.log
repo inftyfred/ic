@@ -1,0 +1,13 @@
+*design* DebussyLib (btIdent Verdi_O-2018.09-SP2)
+Command arguments:
+    +define+verilog
+    -2001
+    -sverilog
+    /home/infty/ic/verilog/dp_ram/tb/tb_syncfifo.v
+    /home/infty/ic/verilog/dp_ram/src/dp_ram.v
+    /home/infty/ic/verilog/dp_ram/src/syncfifo.v
+
+Highest level modules:
+tb_syncfifo
+
+Total	0 error(s),   0 warning(s)
