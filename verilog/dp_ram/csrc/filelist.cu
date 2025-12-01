@@ -1,20 +1,12 @@
 PIC_LD=ld
 
 ARCHIVE_OBJS=
-ARCHIVE_OBJS += _21836_archive_1.so
-_21836_archive_1.so : archive.22/_21836_archive_1.a
+ARCHIVE_OBJS += _4595_archive_1.so
+_4595_archive_1.so : archive.23/_4595_archive_1.a
 	@$(AR) -s $<
-	@$(PIC_LD) -shared  -Bsymbolic  -o .//../build/simv.daidir//_21836_archive_1.so --whole-archive $< --no-whole-archive
+	@$(PIC_LD) -shared  -Bsymbolic  -o .//../build/simv.daidir//_4595_archive_1.so --whole-archive $< --no-whole-archive
 	@rm -f $@
-	@ln -sf .//../build/simv.daidir//_21836_archive_1.so $@
-
-
-ARCHIVE_OBJS += _prev_archive_1.so
-_prev_archive_1.so : archive.22/_prev_archive_1.a
-	@$(AR) -s $<
-	@$(PIC_LD) -shared  -Bsymbolic  -o .//../build/simv.daidir//_prev_archive_1.so --whole-archive $< --no-whole-archive
-	@rm -f $@
-	@ln -sf .//../build/simv.daidir//_prev_archive_1.so $@
+	@ln -sf .//../build/simv.daidir//_4595_archive_1.so $@
 
 
 

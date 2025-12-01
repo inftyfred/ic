@@ -1,0 +1,113 @@
+0 
+35
++define+FSDB
++itf+/usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/vcsdp_lite.tab
++v2k
++vcsd1
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/usr/synopsys/vcs/O-2018.09-SP2/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -LDFLAGS -Wl,--no-as-needed -rdynamic
+-Mobjects= /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/libvirsim.so /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
+-Mout=/home/infty/ic/systemverilog/helloworld/build/simv
+-Msaverestoreobj=/usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=/usr/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/pli.a -ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/usr/synopsys/vcs/O-2018.09-SP2/include
+-P
+-debug_acc+fsdb
+-debug_access+all
+-f /home/infty/ic/systemverilog/helloworld/build/filelist.f
+-fsdb
+-full64
+-gen_obj
+-l
+-o /home/infty/ic/systemverilog/helloworld/build/simv
+-picarchive
+-sverilog
+/home/infty/ic/systemverilog/helloworld/build/compile.log
+/usr/synopsys/vcs/O-2018.09-SP2/linux64/bin/vcs1
+/usr/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/verdi.tab
+62
+sysc_uni_pwd=/home/infty/ic/systemverilog/helloworld
+XMODIFIERS=@im=ibus
+XDG_SESSION_TYPE=x11
+XDG_SESSION_DESKTOP=ubuntu
+XDG_SESSION_CLASS=user
+XDG_RUNTIME_DIR=/run/user/1000
+XDG_MENU_PREFIX=gnome-
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XAUTHORITY=/run/user/1000/gdm/Xauthority
+WINDOWPATH=2
+VTE_VERSION=6003
+VMR_MODE_FLAG=64
+VERDI_HOME=/usr/synopsys/verdi/Verdi_O-2018.09-SP2
+VCS_MX_HOME=/usr/synopsys/vcs/O-2018.09-SP2
+VCS_MODE_FLAG=64
+VCS_LOG_FILE=/home/infty/ic/systemverilog/helloworld/build/compile.log
+VCS_HOME=/usr/synopsys/vcs/O-2018.09-SP2
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH_OVERRIDE=linux
+VCS_ARCH=linux64
+USERNAME=infty
+UNAME=/bin/uname
+TOOL_HOME=/usr/synopsys/vcs/O-2018.09-SP2/linux64
+SynopsysList=/usr/synopsys
+SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+SSH_AGENT_PID=1569
+SNPS_VCS_INTERNAL_UBUNTU_PRE_LDFLAGS= -no-pie 
+SESSION_MANAGER=local/ubuntu:@/tmp/.ICE-unix/1652,unix/ubuntu:/tmp/.ICE-unix/1652
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+SCL_HOME=/usr/synopsys/scl/2018.06
+QT_IM_MODULE=ibus
+QT_ACCESSIBILITY=1
+OVA_UUM=0
+MFLAGS=
+MANAGERPID=1476
+MAKE_TERMOUT=/dev/pts/1
+MAKE_TERMERR=/dev/pts/1
+MAKELEVEL=1
+MAKEFLAGS=
+LESSOPEN=| /usr/bin/lesspipe %s
+LESSCLOSE=/usr/bin/lesspipe %s %s
+LC_ALL=C
+JOURNAL_STREAM=8:52084
+INVOCATION_ID=e843624b8e0b45a0814fe554db9021e0
+IM_CONFIG_PHASE=1
+GTK_MODULES=gail:atk-bridge
+GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
+GNOME_TERMINAL_SERVICE=:1.103
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/8e609d2f_8355_4b32_aa0d_9c154b406761
+GNOME_SHELL_SESSION_MODE=ubuntu
+GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+GJS_DEBUG_TOPICS=JS ERROR;JS LOG
+GJS_DEBUG_OUTPUT=stderr
+GDMSESSION=ubuntu
+DVE_HOME=/usr/synopsys/vcs-mx/O-2018.09-SP2/gui/dve
+DESKTOP_SESSION=ubuntu
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+COLORTERM=truecolor
+0
+4
+1764065528 /home/infty/ic/systemverilog/helloworld/src/helloworld.sv
+1764325493 /home/infty/ic/systemverilog/helloworld/build/filelist.f
+1551421246 /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/vcsdp_lite.tab
+1550753332 /usr/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/verdi.tab
+4
+1551422344 /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/libvirsim.so
+1551421792 /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so
+1551421768 /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so
+1551421789 /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
+1764325528 /home/infty/ic/systemverilog/helloworld/build/simv.daidir
+-1 partitionlib

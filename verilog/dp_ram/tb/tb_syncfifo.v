@@ -446,7 +446,7 @@ module tb_syncfifo;
     // Waveform dump (for debugging)
     initial begin
         $fsdbDumpfile("syncfifo.fsdb");
-        $fsdbDumpvars();
+        $fsdbDumpvars(0, tb_syncfifo, "+all");
     end
     
 endmodule

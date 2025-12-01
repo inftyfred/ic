@@ -2,7 +2,7 @@ Magic 271485
 Revision Verdi_O-2018.09-SP2
 
 ; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
-viewPort 0 27 1608 418 196 65
+viewPort 0 27 1608 416 196 65
 
 ; File list:
 ; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
@@ -16,16 +16,16 @@ signalSpacing 5
 
 ; windowTimeUnit is used for zoom, cursor & marker
 ; waveform viewport range
-zoom 0.000000 26500.000000
-cursor 0.000000
+zoom 544398.869039 588022.000000
+cursor 571500.000000
 marker 0.000000
 
 ; user define markers
 ; userMarker time_pos marker_name color linestyle
 ; visible top row signal index
-top 0
+top 1
 ; marker line index
-markerPos 13
+markerPos 14
 
 ; event list
 ; addEvent event_name event_expression
@@ -51,15 +51,16 @@ addSignal -h 15 /tb_syncfifo/u_syncfifo/fifo_rst
 addSignal -h 15 -holdScope clock
 addSignal -h 15 -holdScope read_enable
 addSignal -h 15 -holdScope write_enable
-addSignal -h 15 -holdScope write_data[7:0]
-addSignal -h 15 -holdScope read_data[7:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope write_data[7:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope read_data[7:0]
 addSignal -h 15 -holdScope full
 addSignal -h 15 -holdScope empty
 addSignal -h 15 -UNSIGNED -UDEC -holdScope fifo_counter[8:0]
-addSignal -h 15 -holdScope read_addr[8:0]
-addSignal -h 15 -holdScope write_addr[8:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope read_addr[8:0]
+addSignal -h 15 -UNSIGNED -UDEC -holdScope write_addr[8:0]
 addSignal -h 15 /tb_syncfifo/u_syncfifo/u_dp_ram_1/write_allow
 addSignal -h 15 /tb_syncfifo/error_count[31:0]
+addSignal -h 15 /tb_syncfifo/u_syncfifo/read_allow
 addGroup "G2"
 
 ; getSignalForm Scope Hierarchy Status

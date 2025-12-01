@@ -19,15 +19,15 @@ Console = FALSE
 powerDumped = 0
 [hb]
 postSimFile = /home/infty/ic/verilog/dp_ram/build/syncfifo.fsdb
-syncTime = 0
-viewport = 71 26 1608 986 0 0 358 1606
-activeNode = "tb_syncfifo"
-activeScope = "tb_syncfifo"
-activeFile = "/home/infty/ic/verilog/dp_ram/tb/tb_syncfifo.v"
+syncTime = 571500
+viewport = 71 26 1608 986 0 0 209 1606
+activeNode = "tb_syncfifo.u_syncfifo"
+activeScope = "tb_syncfifo.u_syncfifo"
+activeFile = "/home/infty/ic/verilog/dp_ram/src/syncfifo.v"
 interactiveMode = False
 viewType = Source
 simulatorMode = False
-sourceBeginLine = 2
+sourceBeginLine = 22
 baMode = True
 srcLineNum = True
 AutoWrap = True
@@ -44,22 +44,22 @@ DnDtraceCrossHierOnly = True
 traceIncTopPort = False
 leadingZero = False
 signalPane = False
-Scope1 = "tb_syncfifo"
+Scope1 = "tb_syncfifo.u_syncfifo"
 sdfCheckUndef = FALSE
 simFlow = FALSE
 [hb.design]
 importCmd = "-2001" "-sverilog" "/home/infty/ic/verilog/dp_ram/tb/tb_syncfifo.v" "/home/infty/ic/verilog/dp_ram/src/dp_ram.v" "/home/infty/ic/verilog/dp_ram/src/syncfifo.v" 
 invokeDir = /home/infty/ic/verilog/dp_ram
 [hb.sourceTab.1]
-scope = tb_syncfifo
-File = /home/infty/ic/verilog/dp_ram/tb/tb_syncfifo.v
-Line = 3
+scope = tb_syncfifo.u_syncfifo
+File = /home/infty/ic/verilog/dp_ram/src/syncfifo.v
+Line = 23
 [nMemoryManager]
 WaveformFile = /home/infty/ic/verilog/dp_ram/build/syncfifo.fsdb
 UserActionNum = 0
 nMemWindowNum = 0
 [wave.0]
-viewPort = 0 27 1608 418 196 65
+viewPort = 0 27 1608 416 196 65
 primaryWindow = TRUE
 SessionFile = /home/infty/ic/verilog/dp_ram/verdiLog/novas_autosave.ses.wave.0
 displayGrid = FALSE

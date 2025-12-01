@@ -1,7 +1,9 @@
 0 
-35
+38
 +define+FSDB
 +itf+/usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/vcsdp_lite.tab
++memcbk
++plusarg_save
 +v2k
 +vcsd1
 +vpi
@@ -32,6 +34,7 @@
 -o /home/infty/ic/verilog/dp_ram/build/simv
 -picarchive
 -sverilog
+-timescale=1ns/1ps
 /home/infty/ic/verilog/dp_ram/build/compile.log
 /usr/synopsys/vcs/O-2018.09-SP2/linux64/bin/vcs1
 /usr/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/verdi.tab
@@ -64,9 +67,9 @@ UNAME=/bin/uname
 TOOL_HOME=/usr/synopsys/vcs/O-2018.09-SP2/linux64
 SynopsysList=/usr/synopsys
 SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
-SSH_AGENT_PID=1659
+SSH_AGENT_PID=1657
 SNPS_VCS_INTERNAL_UBUNTU_PRE_LDFLAGS= -no-pie 
-SESSION_MANAGER=local/ubuntu:@/tmp/.ICE-unix/1742,unix/ubuntu:/tmp/.ICE-unix/1742
+SESSION_MANAGER=local/ubuntu:@/tmp/.ICE-unix/1740,unix/ubuntu:/tmp/.ICE-unix/1740
 SCRNAME=vcs
 SCRIPT_NAME=vcs
 SCL_HOME=/usr/synopsys/scl/2018.06
@@ -74,7 +77,7 @@ QT_IM_MODULE=ibus
 QT_ACCESSIBILITY=1
 OVA_UUM=0
 MFLAGS=
-MANAGERPID=1565
+MANAGERPID=1563
 MAKE_TERMOUT=/dev/pts/0
 MAKE_TERMERR=/dev/pts/0
 MAKELEVEL=1
@@ -82,13 +85,13 @@ MAKEFLAGS=
 LESSOPEN=| /usr/bin/lesspipe %s
 LESSCLOSE=/usr/bin/lesspipe %s %s
 LC_ALL=C
-JOURNAL_STREAM=8:55983
-INVOCATION_ID=6e60fb6d91644cf9afcd36798df4d101
+JOURNAL_STREAM=8:47926
+INVOCATION_ID=8cf427875a2e445fba2d8f22b30b9947
 IM_CONFIG_PHASE=1
 GTK_MODULES=gail:atk-bridge
 GPG_AGENT_INFO=/run/user/1000/gnupg/S.gpg-agent:0:1
-GNOME_TERMINAL_SERVICE=:1.116
-GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/84d8718f_e7f9_4ba9_8f5c_b7692fa40644
+GNOME_TERMINAL_SERVICE=:1.102
+GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/625a6927_169f_4615_972f_f41ba62dfd70
 GNOME_SHELL_SESSION_MODE=ubuntu
 GNOME_DESKTOP_SESSION_ID=this-is-deprecated
 GJS_DEBUG_TOPICS=JS ERROR;JS LOG
@@ -102,8 +105,8 @@ COLORTERM=truecolor
 6
 1764500429 /home/infty/ic/verilog/dp_ram/src/syncfifo.v
 1764499824 /home/infty/ic/verilog/dp_ram/src/dp_ram.v
-1764500610 /home/infty/ic/verilog/dp_ram/tb/tb_syncfifo.v
-1764500611 /home/infty/ic/verilog/dp_ram/build/filelist.f
+1764591882 /home/infty/ic/verilog/dp_ram/tb/tb_syncfifo.v
+1764592335 /home/infty/ic/verilog/dp_ram/build/filelist.f
 1551421246 /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/vcsdp_lite.tab
 1550753332 /usr/synopsys/verdi/Verdi_O-2018.09-SP2/share/PLI/VCS/LINUX64/verdi.tab
 4
@@ -111,5 +114,5 @@ COLORTERM=truecolor
 1551421792 /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/liberrorinf.so
 1551421768 /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/libsnpsmalloc.so
 1551421789 /usr/synopsys/vcs/O-2018.09-SP2/linux64/lib/libvfs.so
-1764500613 /home/infty/ic/verilog/dp_ram/build/simv.daidir
+1764592339 /home/infty/ic/verilog/dp_ram/build/simv.daidir
 -1 partitionlib

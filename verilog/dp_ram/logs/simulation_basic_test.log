@@ -1,13 +1,14 @@
 Command: /home/infty/ic/verilog/dp_ram/build/simv +TESTNAME=basic_test +TIMEOUT=1000000 +FSDB=1 +WAVE_FILE=/home/infty/ic/verilog/dp_ram/wave/wave_basic_test.fsdb -l /home/infty/ic/verilog/dp_ram/logs/simulation_basic_test.log
 Chronologic VCS simulator copyright 1991-2018
 Contains Synopsys proprietary information.
-Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Nov 30 03:03 2025
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Dec  1 04:32 2025
 *Verdi* Loading libsscore_vcs201809.so
 FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
 (C) 1996 - 2019 by Synopsys, Inc.
 *Verdi* FSDB WARNING: The FSDB file already exists. Overwriting the FSDB file may crash the programs that are using this file.
 *Verdi* : Create FSDB file 'syncfifo.fsdb'
-*Verdi* : Begin traversing the scopes, layer (0).
+*Verdi* : Begin traversing the scope (tb_syncfifo), layer (0).
+*Verdi* : Enable +all dumping.
 *Verdi* : End of traversing.
 Time 500: FIFO EMPTY
 Time 1500: FIFO EMPTY
@@ -1255,5 +1256,5 @@ $finish called from file "/home/infty/ic/verilog/dp_ram/tb/tb_syncfifo.v", line 
 $finish at simulation time              1703200
            V C S   S i m u l a t i o n   R e p o r t 
 Time: 17032000 ps
-CPU Time:      0.170 seconds;       Data structure size:   0.0Mb
-Sun Nov 30 03:03:34 2025
+CPU Time:      0.490 seconds;       Data structure size:   0.0Mb
+Mon Dec  1 04:32:25 2025

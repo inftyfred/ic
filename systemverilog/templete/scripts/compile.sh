@@ -110,6 +110,10 @@ compile_design() {
         -f "$BUILD_DIR/filelist.f" \
         -o "$SIMV_PATH" \
         -l "$LOG_FILE" \
+		-j8 \
+		-timescale=1ns/1ps \
+		+plusarg_save		\
+		+memcbk				\
         "-LDFLAGS -Wl,--no-as-needed"
     
     local compile_status=$?
