@@ -7,3 +7,4 @@ logs/
 csrc/ 
 novas* 
 verdiLog/
+*.swp
