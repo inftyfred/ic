@@ -9,6 +9,9 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
+# 额外编译参数（可通过环境变量 ARGS 或命令行参数 ARGS=... 传递）
+EXTRA_ARGS=""
+
 # 脚本目录和项目根目录
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
@@ -93,6 +96,7 @@ generate_filelist() {
 compile_design() {
     info "开始编译..."
     info "日志文件: $LOG_FILE"
+    info "额外编译参数: $EXTRA_ARGS"
     
     # 检查 VCS 是否可用
     if ! command -v vcs &> /dev/null; then
@@ -114,7 +118,8 @@ compile_design() {
 		-timescale=1ns/1ps \
 		+plusarg_save		\
 		+memcbk				\
-        "-LDFLAGS -Wl,--no-as-needed"
+        "-LDFLAGS -Wl,--no-as-needed" \
+        $EXTRA_ARGS
     
     local compile_status=$?
     
@@ -147,7 +152,23 @@ show_summary() {
 main() {
     info "VCS 自动编译脚本启动"
     info "项目根目录: $PROJECT_ROOT"
-    
+
+    # 解析额外参数
+    # 1. 首先检查环境变量 ARGS
+    if [ -n "$ARGS" ]; then
+        EXTRA_ARGS="$ARGS"
+        info "从环境变量 ARGS 获取额外参数: $EXTRA_ARGS"
+    fi
+
+    # 2. 检查命令行参数（格式: ARGS="..."）
+    for arg in "$@"; do
+        if [[ "$arg" == ARGS=* ]]; then
+            EXTRA_ARGS="${arg#ARGS=}"
+            info "从命令行参数获取额外参数: $EXTRA_ARGS"
+            break
+        fi
+    done
+
     # 检查源文件目录
     if ! check_src_directory; then
         error "源文件检查失败"

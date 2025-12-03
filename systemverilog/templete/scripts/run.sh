@@ -9,6 +9,9 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m'
 
+# 额外运行参数（可通过环境变量 ARGS 或命令行参数 ARGS=... 传递）
+EXTRA_ARGS=""
+
 # 脚本目录和项目根目录
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
@@ -87,10 +90,15 @@ parse_arguments() {
                 usage
                 exit 0
                 ;;
+            ARGS=*)
+                # ARGS参数已在主函数中解析，这里跳过
+                shift
+                ;;
             *)
-                error "未知参数: $1"
-                usage
-                exit 1
+                shift
+				#error "未知参数: $1"
+                #usage
+                #exit 1
                 ;;
         esac
     done
@@ -127,11 +135,11 @@ check_prerequisites() {
 # 生成运行时参数
 generate_run_options() {
     local options=""
-    
+
     # 基本参数
     options+="+TESTNAME=$TEST_NAME"
     options+=" +TIMEOUT=$TIMEOUT"
-    
+
     # 波形参数
     case $WAVE_TYPE in
         fsdb)
@@ -148,12 +156,17 @@ generate_run_options() {
             options+=" +WAVE_FILE=$WAVE_DIR/wave_${TEST_NAME}.fsdb"
             ;;
     esac
-    
+
+    # 额外参数
+    if [ -n "$EXTRA_ARGS" ]; then
+        options+=" $EXTRA_ARGS"
+    fi
+
     # GUI 模式
 #    if [ "$GUI_MODE" -eq 1 ]; then
 #        options+=" -gui"
 #    fi
-    
+
     echo "$options"
 }
 
@@ -234,8 +247,24 @@ show_simulation_summary() {
 # 主函数
 main() {
     info "VCS 仿真运行脚本启动"
-    
-    # 解析参数
+
+    # 解析额外参数
+    # 1. 首先检查环境变量 ARGS
+    if [ -n "$ARGS" ]; then
+        EXTRA_ARGS="$ARGS"
+        info "从环境变量 ARGS 获取额外参数: $EXTRA_ARGS"
+    fi
+
+    # 2. 检查命令行参数（格式: ARGS="..."）
+    for arg in "$@"; do
+        if [[ "$arg" == ARGS=* ]]; then
+            EXTRA_ARGS="${arg#ARGS=}"
+            info "从命令行参数获取额外参数: $EXTRA_ARGS"
+            break
+        fi
+    done
+
+    # 解析其他参数
     parse_arguments "$@"
     
     # 检查前置条件
