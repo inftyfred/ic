@@ -5,3 +5,14 @@ VERILOG tb_syncfifo
 -----
 second field= DebussyLib
 third field= tb_syncfifo
+type= DS_SCOPE element= 1 field= 1
+VERILOG tb_syncfifo
+-----
+second field= DebussyLib
+third field= tb_syncfifo
+type= DS_SCOPE element= 1 field= 1
+VERILOG tb_syncfifo
+-----
+second field= DebussyLib
+third field= tb_syncfifo
+au time 13.048145 2.033252 0.408782 delta 252588032 252588032 total 626106368 626106368

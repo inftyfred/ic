@@ -19,6 +19,7 @@ include filelist.hsopt
 
 include filelist.cu
 
+VCS_MISC_OBJS=
 VCS_INCR_OBJS=
 
 
