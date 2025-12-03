@@ -1,0 +1,9 @@
+build/ 
+wave/ 
+logs/ 
+*.log 
+*.fsdb 
+*.vcd 
+csrc/ 
+novas* 
+verdiLog/
