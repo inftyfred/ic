@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="Author" content="<username>"> <meta name="GENERATOR" content="urg/version [en] (platform name) [urg]">
+<title>Unified Coverage Report :: Module :: testbench</title>
+<link type="text/css" rel="stylesheet" href="css/.urg.css">
+<link type="text/css" rel="stylesheet" href="css/.layout.css">
+<link type="text/css" rel="stylesheet" href="css/.breadcrumb.css">
+<script type="text/javascript" src="js/.jquery.js"></script>
+<script type="text/javascript" src="js/.jquery-ui.js"></script>
+<script type="text/javascript" src="js/.sortable.js"></script>
+<script type="text/javascript" src="js/.layout.js"></script>
+<script type="text/javascript" src="js/.breadcrumb.js"></script>
+<script type="text/javascript">
+var layout, westLayout, centerLayout;
+$(document).ready(function () {
+  if ($("#north-bread-crumb")) {
+    $("#north-bread-crumb").jBreadCrumb({easing:'swing'})
+  }
+  layout = $("body").layout({ 
+    resizable: true,
+    spacing_open: 4,
+    spacing_closed: 4,
+    north: {
+      size: 76
+    },
+    south: {
+      size: 45,
+      initClosed: true
+    },
+    west: {
+      size: 500,
+      resizable: true,
+      initClosed: false
+    }
+  });
+  centerLayout = $('div.ui-layout-center').layout({
+    north__paneSelector: ".ui-layout-center-inner-north",
+    center__paneSelector: ".ui-layout-center-inner-center", 
+    north__size: 50,
+    spacing_open: 4,
+    spacing_closed: 4
+  });
+});
+</script>
+</head>
+<body onLoad="initPage();"><div class="ui-layout-north">
+<div class="logo"></div>
+<center class="pagetitle">Module Definition</center>
+<div align="center"><a href="dashboard.html" ><b>dashboard</b></a> | <a href="hierarchy.html" ><b>hierarchy</b></a> | <a href="modlist.html" ><b>modlist</b></a> | <a href="groups.html" ><b>groups</b></a> | <a href="tests.html" ><b>tests</b></a> | asserts</div>
+
+</div>
+<div class="ui-layout-west">
+<div name='tag_testbench'>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module : <a href="#"  onclick="showContent('tag_testbench')">testbench</a></span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td></tr><tr>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s10 cl rt"><a href="mod1.html#Line" >100.00</a></td>
+<td class="s5 cl rt"><a href="mod1.html#Toggle" > 50.00</a></td>
+</tr></table><br clear=all>
+<span class=repname>Source File(s) : </span>
+<br clear=all>
+<a href="javascript:void(0);"  onclick="openSrcFile('/home/infty/ic/systemverilog/fulladder_coverage/tb/tb_fulladder.sv')">/home/infty/ic/systemverilog/fulladder_coverage/tb/tb_fulladder.sv</a><br clear=all>
+<br clear=all>
+<span class=repname>Module self-instances :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod1.html#inst_tag_1"  onclick="showContent('inst_tag_1')">testbench</a></td>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s10 cl rt"><a href="mod1.html#Line" >100.00</a></td>
+<td class="s5 cl rt"><a href="mod1.html#Toggle" > 50.00</a></td>
+</tr></table></div>
+</div>
+<br clear=all>
+<div name='tag_testbench'>
+<hr>
+<a name="inst_tag_1"></a>
+<div class=modhdr>
+<br clear=all>
+<span class=titlename>Module Instance : <a href="hierarchy.html#tag_urg_inst_1" >testbench</a></span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Instance :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td></tr><tr>
+<td class="s7 cl rt"> 75.00</td>
+<td class="s10 cl rt"><a href="mod1.html#Line" >100.00</a></td>
+<td class="s5 cl rt"><a href="mod1.html#Toggle" > 50.00</a></td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Instance's subtree :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td>SCORE</td><td>LINE</td><td>TOGGLE</td></tr><tr>
+<td class="s7 cl rt"> 72.73</td>
+<td class="s10 cl rt">100.00</td>
+<td class="s4 cl rt"> 45.45</td>
+</tr></table><br clear=all>
+<br clear=all>
+<span class=repname>Parent : </span>
+<br clear=all>
+<span class=inst>none</span>
+<br clear=all>
+<br clear=all>
+<span class=repname>Subtrees :</span>
+<br clear=all>
+<table align=left>
+<tr class="sortablehead">
+<td class="alfsrt">NAME</td><td>SCORE</td><td>LINE</td><td>TOGGLE</td></tr><tr>
+<td class="wht cl wordwrap"><a href="mod0.html#inst_tag_0" id="tag_urg_inst_0">dut</a></td>
+<td class="s4 cl rt"> 40.00</td>
+<td class="wht cl rt"></td>
+<td class="s4 cl rt"> 40.00</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<hr>
+Since this is the module's only instance, the coverage report is the same as for the module.</div>
+<div class="ui-layout-center">
+<div class="ui-layout-center-inner-center">
+<div name='tag_testbench'>
+<a name="Line"></a>
+Line Coverage for Module : <a href="mod1.html" >testbench</a><br clear=all>
+<table class="noborder">
+<col width="122">
+<col span="4" width="82">
+<tr><th></th><th>Line No.</th><th>Total</th><th>Covered</th><th>Percent</th></tr>
+<tr class="s10"><td class="lf">TOTAL</td><td></td><td>23</td><td>23</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">ALWAYS</td><td>7</td><td>2</td><td>2</td><td>100.00</td></tr>
+<tr class="s10"><td class="lf">INITIAL</td><td>26</td><td>21</td><td>21</td><td>100.00</td></tr>
+</table>
+<pre class="code"><br clear=all>
+6                           logic clk = 0;
+7          2/2              always #5 clk = ~clk;
+8                           
+9                           // DUT
+10                          full_adder dut(.a(a), .b(b), .cin(cin), .sum(sum), .cout(cout));
+11                          
+12                          // 覆盖组（无采样事件）
+13                          covergroup cg_adder;
+14                              option.per_instance = 1;
+15                              coverpoint a;
+16                              coverpoint b;
+17                              coverpoint cin;
+18                              cross_cases: cross a, b, cin;
+19                          endgroup
+20                          
+21                          cg_adder cg_inst = new();
+22                          
+23                          initial begin
+24                              integer i;
+25                              
+26         1/1                  $display(&quot;=== 开始全加器测试 ===&quot;);
+27                              
+28                              // 产生激励并手动采样
+29         1/1                  for (i = 0; i &lt; 5; i++) begin
+30         2/2                      @(posedge clk);
+31         1/1                      a = $random;
+32         1/1                      b = $random;
+33         1/1                      cin = $random;
+34                                  
+35         2/2                      #1; // 等待DUT输出稳定
+36                                  
+37                                  // 手动采样覆盖组
+38         1/1                      cg_inst.sample();
+39                                  
+40         1/1                      $display(&quot;测试 %0d: a=%b, b=%b, cin=%b =&gt; sum=%b, cout=%b&quot;,
+41                                           i+1, a, b, cin, sum, cout);
+42                              end
+43                              
+44                              // 显示覆盖率
+45         1/1                  $display(&quot;\n=== 覆盖率报告 ===&quot;);
+46         1/1                  $display(&quot;总测试次数: %0d&quot;, i);
+47         1/1                  $display(&quot;实例覆盖率: %0.2f%%&quot;, cg_inst.get_inst_coverage());
+48         1/1                  $display(&quot;覆盖点 a: %0.2f%%&quot;, cg_inst.a.get_coverage());
+49         1/1                  $display(&quot;覆盖点 b: %0.2f%%&quot;, cg_inst.b.get_coverage());
+50         1/1                  $display(&quot;覆盖点 cin: %0.2f%%&quot;, cg_inst.cin.get_coverage());
+51         1/1                  $display(&quot;交叉覆盖率: %0.2f%%&quot;, cg_inst.cross_cases.get_coverage());
+52                              
+53                              // 解释全局覆盖率
+54         1/1                  $display(&quot;\n注：全局覆盖率 $get_coverage() = %0.2f%% 包含代码覆盖率&quot;, 
+55                                       $get_coverage());
+56         1/1                  $display(&quot;（如行覆盖、分支覆盖等），而功能覆盖率显示为0是因为采样时机问题&quot;);
+57                              
+58         1/1                  $finish;
+</pre>
+<hr>
+<a name="Toggle"></a>
+Toggle Coverage for Module : <a href="mod1.html" >testbench</a><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80>Total</th><th nowrap width=80>Covered</th><th nowrap width=80>Percent</th></tr><tr class="s3">
+<td>Totals</td>
+<td class="rt">6</td>
+<td class="rt">2</td>
+<td class="rt">33.33 </td>
+</tr><tr class="s5">
+<td>Total Bits</td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 0->1</td>
+<td class="rt">6</td>
+<td class="rt">3</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td nowrap>Total Bits 1->0</td>
+<td class="rt">6</td>
+<td class="rt">3</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<table align=left class="noborder">
+<tr>
+<th nowrap width=120></th><th nowrap width=80></th><th nowrap width=80></th><th nowrap width=80></th></tr><tr class="s3">
+<td>Signals</td>
+<td class="rt">6</td>
+<td class="rt">2</td>
+<td class="rt">33.33 </td>
+</tr><tr class="s5">
+<td>Signal Bits</td>
+<td class="rt">12</td>
+<td class="rt">6</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td nowrap>Signal Bits 0->1</td>
+<td class="rt">6</td>
+<td class="rt">3</td>
+<td class="rt">50.00 </td>
+</tr><tr class="s5">
+<td nowrap>Signal Bits 1->0</td>
+<td class="rt">6</td>
+<td class="rt">3</td>
+<td class="rt">50.00 </td>
+</tr></table><br clear=all>
+<table align=left class="sortable noborder">
+<caption><b>Signal Details</b></caption>
+<tr class="sortablehead">
+<td class="alfsrt">Name</td><td class="alfsrt">Toggle</td><td class="alfsrt">Toggle 1->0</td><td class="alfsrt">Toggle 0->1</td></tr><tr>
+<td>a</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>b</td>
+<td class="s3 cl">No</td>
+<td class="s9 cl">Yes</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>cin</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>sum</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr><tr>
+<td>cout</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+<td class="s3 cl">No</td>
+</tr><tr>
+<td>clk</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+<td class="s9 cl">Yes</td>
+</tr></table><br clear=all>
+</div>
+</div>
+<div class="ui-layout-center-inner-north">
+<div id="center-bread-crumb" class="breadCrumb module urg-margin-bottom">
+  <ul name="inst_tag_1">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+  </ul>
+  <ul name="tag_testbench">
+    <li>
+      <a href="#Line">Line</a>    </li>
+    <li>
+      <a href="#Toggle">Toggle</a>    </li>
+  </ul>
+</div>
+</div>
+</div>
+<div class="ui-layout-south">
+<table align=center><tr><td class="s0 cl">0%</td>
+<td class="s1 cl">10%</td>
+<td class="s2 cl">20%</td>
+<td class="s3 cl">30%</td>
+<td class="s4 cl">40%</td>
+<td class="s5 cl">50%</td>
+<td class="s6 cl">60%</td>
+<td class="s7 cl">70%</td>
+<td class="s8 cl">80%</td>
+<td class="s9 cl">90%</td>
+<td class="s10 cl">100%</td></tr></table></div>
+</body>
+</html>

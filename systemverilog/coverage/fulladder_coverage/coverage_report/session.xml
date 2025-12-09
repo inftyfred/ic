@@ -1,0 +1,31 @@
+<session version="1.1" release="O-2018.09-SP2" timestp="2025-12-09 11:05:23 GMT">
+  <info>
+    <attr name="datetime" value="Tue Dec  9 03:16:00 2025
+"/>
+    <attr name="command" value="urg -full64 -dir build/simv.vdb/ -report coverage_report"/>
+    <attr name="top_instance" value="testbench"/>
+  </info>
+  <hvp>
+    <datadef>
+      <metdef name="Line" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Toggle" type="ratio" aggregator="average" builtin="1" />
+      <metdef name="Group" type="percent" aggregator="average" builtin="1" />
+    </datadef>
+  </hvp>
+  <old_coverage>
+  <scope type="top" name="top">
+    <metric name="Line" value="23/23" />
+    <metric name="Toggle" value="10/22" />
+    <metric name="Group" value="71.875%" />
+  </scope>
+  <scope type="instance" name="top">
+  </scope>
+  <scope type="group" name="top">
+    <scope type="group" name="testbench::cg_adder">
+      <metric name="Group" value="71.875%" />
+    </scope>
+  </scope>
+  <scope type="assert" name="Statistics">
+  </scope>
+  </old_coverage>
+</session>
