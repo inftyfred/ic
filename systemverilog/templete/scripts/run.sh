@@ -184,10 +184,10 @@ run_simulation() {
 #        info "GUI 模式: 启用"
 #    fi
     
-    debug "运行命令: $SIMV_PATH $run_options -l $LOG_FILE"
+    debug "运行命令: $SIMV_PATH $run_options $ARGS -l $LOG_FILE"
     
     # 执行仿真
-    cd "$BUILD_DIR" && "$SIMV_PATH" $run_options -l "$LOG_FILE"
+    cd "$BUILD_DIR" && "$SIMV_PATH" $run_options $ARGS -l "$LOG_FILE"
     
     local sim_status=$?
     

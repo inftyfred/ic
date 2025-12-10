@@ -1,13 +1,22 @@
-# Makefile
+# Makefil
+# 目录配置
+SCRIPTS_DIR = ./scripts
+#默认附加参数 支持通过命令行添加额外的临时参数
+DEFAULT_ARGS_COMPILE = -cm line+tgl
+DEFAULT_ARGS_RUN = -cm line+tgl
+DEFAULT_ARGS_SIM = 
+
 .PHONY: compile run clean sim simreload help cleanall
 
 compile:
 	@echo "编译项目..."
-	./scripts/compile.sh $(ARGS)
+	ARGS="$(DEFAULT_ARGS_COMPILE) $(ARGS)"		\
+	$(SCRIPTS_DIR)/compile.sh 
 
 run:
 	@echo "运行仿真..."
-	./scripts/run.sh $(ARGS)
+	ARGS="$(DEFAULT_ARGS_RUN) $(ARGS)"		\
+	$(SCRIPTS_DIR)/run.sh 
 
 clean:
 	@echo "清理生成文件..."
@@ -15,11 +24,12 @@ clean:
 
 sim:
 	@echo "using verdi to sim..."
-	./scripts/verdi.sh $(ARGS)
+	ARGS="$(DEFAULT_ARGS_SIM) $(ARGS)"		\
+	$(SCRIPTS_DIR)/verdi.sh 
 
 simreload:
 	@echo "using verdi to reload wave..."
-	./scripts/verdi.sh --reload
+	$(SCRIPTS_DIR)/verdi.sh --reload
 
 
 cleanall:

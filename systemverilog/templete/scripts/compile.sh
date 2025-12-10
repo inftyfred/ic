@@ -52,12 +52,13 @@ check_src_directory() {
     fi
     
     local v_files=$(find "$SRC_DIR" -name "*.v" -o -name "*.sv" | wc -l)
-    if [ "$v_files" -eq 0 ]; then
-        warn "在 $SRC_DIR 中未找到 .v 或 .sv 文件"
+    local v_files_tb=$(find "$TB_DIR" -name "*.v" -o -name "*.sv" | wc -l)
+    if  [ "$v_files" -eq 0 ] && [ "$v_files_tb" -eq 0 ]; then
+        warn "在 $SRC_DIR 和 $TB_DIR中未找到 .v 或 .sv 文件"
         return 1
     fi
     
-    info "找到 $v_files 个 Verilog/SystemVerilog 文件"
+    info "找到 {$v_files+$v_files_tb} 个 Verilog/SystemVerilog 文件"
     return 0
 }
 
@@ -103,7 +104,24 @@ compile_design() {
         error "VCS 未找到，请确保 VCS 已安装并在 PATH 中"
         return 1
     fi
-    
+   
+    info "编译参数："
+    echo "vcs -full64 \n
+        +v2k \n
+        -sverilog \n
+        -fsdb \n
+        +define+FSDB \n
+        -debug_access+all \n
+        -f "$BUILD_DIR/filelist.f" \n
+        -o "$SIMV_PATH" \n
+        -l "$LOG_FILE" \n
+		-j8 \n
+		-timescale=1ns/1ps \n
+		+plusarg_save		\n
+		+memcbk				\n
+        "-LDFLAGS -Wl,--no-as-needed" \n
+        $EXTRA_ARGS				\n
+		"
     # VCS 编译命令
     vcs -full64 \
         +v2k \
@@ -118,8 +136,10 @@ compile_design() {
 		-timescale=1ns/1ps \
 		+plusarg_save		\
 		+memcbk				\
+        $EXTRA_ARGS			\
         "-LDFLAGS -Wl,--no-as-needed" \
-        $EXTRA_ARGS
+		#-cm line+tgl	\
+
     
     local compile_status=$?
     
