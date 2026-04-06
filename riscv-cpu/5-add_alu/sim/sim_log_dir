@@ -1,0 +1,20 @@
+Command: /home/infty/ic/riscv-cpu/5-add_alu/build/simv -ucli -i /home/infty/ic/riscv-cpu/5-add_alu/script/generate_wave.tcl -l sim_log_dir
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Apr  6 03:50 2026
+ucli% call {$fsdbDumpfile("dump.fsdb")}
+*Verdi* Loading libsscore_vcs201809.so
+FSDB Dumper for VCS, Release Verdi_O-2018.09-SP2, Linux x86_64/64bit, 02/21/2019
+(C) 1996 - 2019 by Synopsys, Inc.
+*Verdi* : Create FSDB file 'dump.fsdb'
+ucli% call {$fsdbDumpvars(0, tb_riscv_top, "+all"}
+*Verdi* : Begin traversing the scope (tb_riscv_top), layer (0).
+*Verdi* : Enable +all dumping.
+*Verdi* : End of traversing.
+ucli% run
+$finish called from file "/home/infty/ic/riscv-cpu/5-add_alu/tb/tb_riscv_top.sv", line 29.
+$finish at simulation time             11000000
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 11000000 ps
+CPU Time:      0.190 seconds;       Data structure size:   0.1Mb
+Mon Apr  6 03:50:20 2026
