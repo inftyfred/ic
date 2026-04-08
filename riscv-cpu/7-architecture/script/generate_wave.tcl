@@ -1,0 +1,4 @@
+call {$fsdbDumpfile("dump.fsdb")}
+call {$fsdbDumpvars(0, tb_riscv_top, "+all"}
+
+run
