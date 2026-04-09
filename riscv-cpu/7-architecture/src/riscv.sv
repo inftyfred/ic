@@ -18,6 +18,7 @@ logic	[DW-1:0]	instr_out_decode;
 logic	[AW-1:0]	instr_addr_decode;
 logic	[DW-1:0]	instr_out_rom;
 logic	[DW-1:0]	instr_out_execute;
+logic	[AW-1:0]	instr_addr_execute;
 
 logic[4:0]			rd_rs1_addr			;
 logic[4:0]			rd_rs2_addr			;
@@ -87,7 +88,7 @@ decode #(
 
 register #(
   .DW(DW)                
-) u1_regster_inst (
+) u1_register_inst (
 	.clk				(clk		),
  	.rst_n				(rst_n		),
 	.rd_rs1_addr		(rd_rs1_addr),
