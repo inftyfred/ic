@@ -135,6 +135,18 @@ always_comb begin
 					op1_out 	= rd_rs1_data;
 					op2_out		= rd_rs2_data;
 				end
+				`INST_BGEU: begin
+					rd_rs1_addr = rs1;
+					rd_rs2_addr = rs2;
+					op1_out 	= rd_rs1_data;
+					op2_out		= rd_rs2_data;
+				end
+				`INST_BLTU: begin
+					rd_rs1_addr = rs1;
+					rd_rs2_addr = rs2;
+					op1_out 	= rd_rs1_data;
+					op2_out		= rd_rs2_data;
+				end
 				default: begin
 					rd_rs1_addr = 	'h0;
 					rd_rs2_addr = 	'h0;

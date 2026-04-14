@@ -144,6 +144,22 @@ always_comb	begin
 						jump_addr	=	(~op1_lt_op2) ? jump_imm : 'h0;
 						jump_hold	=	1'b0;
 				end
+				`INST_BGEU : begin
+						wr_reg_en	=	1'b0;
+						wr_reg_addr	=	'h0;
+						wr_reg_data	=	'h0;
+						jump_en		=	~(op1 < op2);
+						jump_addr	=	~(op1 < op2) ? jump_imm : 'h0;
+						jump_hold	=	1'b0;
+				end
+				`INST_BLTU : begin
+						wr_reg_en	=	1'b0;
+						wr_reg_addr	=	'h0;
+						wr_reg_data	=	'h0;
+						jump_en		=	(op1 < op2);
+						jump_addr	=	(op1 < op2) ? jump_imm : 'h0;
+						jump_hold	=	1'b0;
+				end
 				default : begin
 						wr_reg_en	=	1'b0;
 						wr_reg_addr	=	'h0;
