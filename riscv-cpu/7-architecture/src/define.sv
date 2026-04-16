@@ -2,7 +2,7 @@
 
 `define	AW	32
 `define	DW	32
-`define	FILE	"instr.txt"
+`define	FILE	"rv32ui-p-andi.txt"
 
 //I type inst
 `define	INST_TYPE_I			7'b0010011
