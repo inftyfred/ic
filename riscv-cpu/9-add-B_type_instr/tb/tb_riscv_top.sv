@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-`include "../src/define.sv"
+`include "../src/riscv/define.sv"
 
 module tb_riscv_top;
 
@@ -13,6 +13,8 @@ logic	[31:0]	tmp;
 logic	[31:0]	x3;
 logic	[31:0]	x26;
 logic	[31:0]	x27;
+logic			uart_tx;
+logic			uart_rx;
 
 assign	x3  = tb_riscv_top.u1_riscv_inst.u1_register_inst.regs[3];
 assign	x26 = tb_riscv_top.u1_riscv_inst.u1_register_inst.regs[26];
@@ -24,7 +26,9 @@ riscv #(
 	.DW		(DW)
 ) u1_riscv_inst (
 	.clk	(clk)		,
-	.rst_n	(rst_n)		
+	.rst_n	(rst_n)		,
+	.uart_tx(uart_tx)	,
+	.uart_rx(uart_rt)
 );
 
 always #5 clk = ~clk;

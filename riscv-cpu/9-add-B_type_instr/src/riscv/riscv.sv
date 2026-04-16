@@ -8,8 +8,13 @@ module riscv #(
 	parameter	DW		=`DW
 )(
 	input	logic	clk,
-	input	logic	rst_n
+	input	logic	rst_n,
+	input	logic	uart_rx,
+	output	logic	uart_tx
 );
+
+localparam	RX_BYTE	=	`RX_BYTE;
+localparam	TX_BYTE	=	`TX_BYTE;
 
 logic				jump_en;
 logic	[AW-1:0]	jump_addr;
@@ -32,10 +37,43 @@ logic[DW-1:0]		op2_execute			;
 logic				wr_reg_en			;
 logic[DW-1:0]		wr_reg_data			;
 
-//assign	jump_en		= 1'b0;
-//assign	jump_addr 	= 'h0;
-//assign  wr_reg_en	= 1'b1;
-//assign	wr_reg_data	= op2_out;
+logic	[DW-1:0]	reg_s10;
+logic	[DW-1:0]	reg_s11;
+logic	[1:0]		ts_flag;
+logic	[23:0]		send_success;
+logic	[23:0]		send_fail	;
+logic				tx_vld;
+logic				rx_vld;
+logic	[TX_BYTE * 8 - 1 : 0]	send_data;
+logic	[RX_BYTE * 8 - 1 : 0]	rx_data;
+logic				send_done;
+
+assign	ts_flag			=	{reg_s10[0], reg_s11[0]};
+assign	send_success	=	"pass success !!!";
+assign	send_fail		=	"pass fail    !!!";
+assign	tx_vld			=	rx_vld && (rx_data == 'h55aa);
+assign	send_data		=	(ts_flag == 2'b11) ? send_success : send_fail;
+
+uart_top #(
+    .CLK_FREQ(`CLK_FREQ)	,
+    .BAUDRATE    (115200),
+    .PARITY      ("EVEN"),
+    .ODD_EVEN    (0),
+    .SEND_NBYTE  (TX_BYTE),
+    .RECV_NBYTE  (RX_BYTE)
+) u1_uart_top_inst(
+	.clk			(clk)		,
+    .rst_n			(rst_n)		,
+    .rxd			(uart_rx)	,
+    .send_en		(tx_vld)	,
+    .send_data		(send_data)	,
+    .send_done		(send_done)	,
+    .txd			(uart_tx)	,
+    .recv_vld		(rx_vld)	,
+    .recv_data		(rx_data)
+);
+
+
 
 pc_counter #(
   	.AW(AW)
@@ -80,7 +118,6 @@ decode #(
 	.instr_in		(instr_out_decode)	,
 	.rd_rs1_addr	(rd_rs1_addr)		,
 	.rd_rs2_addr	(rd_rs2_addr)		,
-//	.wr_reg_addr	()					,
 	.rd_rs1_data	(rd_rs1_data)		,
 	.rd_rs2_data	(rd_rs2_data)		,
 	.op1_out		(op1_decode	)		,
@@ -98,8 +135,11 @@ register #(
  	.rd_rs2_data		(rd_rs2_data),
  	.wr_reg_en			(wr_reg_en	),
  	.wr_reg_addr		(wr_reg_addr),
- 	.wr_reg_data	    (wr_reg_data)
+ 	.wr_reg_data	    (wr_reg_data),
+	.reg_s10			(reg_s10	),
+	.reg_s11			(reg_s11	)
 );
+
 id2ex #(
    .AW					(AW),         
    .DW					(DW)

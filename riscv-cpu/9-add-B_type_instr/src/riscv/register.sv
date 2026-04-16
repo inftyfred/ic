@@ -11,10 +11,15 @@ module register #(
 	output	logic[DW-1:0]	rd_rs2_data	,
 	input	logic			wr_reg_en	,
 	input	logic[4:0]		wr_reg_addr	,
-	input	logic[DW-1:0]	wr_reg_data	
+	input	logic[DW-1:0]	wr_reg_data	,
+	output	logic[DW-1:0]	reg_s10		,
+	output	logic[DW-1:0]	reg_s11	
 );
 
 logic	[DW-1:0]		regs[31:0];
+
+assign	reg_s10	=	regs[26];
+assign	reg_s11	=	regs[27];
 
 always_comb begin
 	if(!rst_n)
