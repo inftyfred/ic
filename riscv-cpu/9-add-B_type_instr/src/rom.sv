@@ -11,11 +11,9 @@ module rom #(
 	output	logic	[DW-1:0]	instr_out
 );
 
-static	string	path	="../test_data/";
-static	string	full_path = {path, FILE};
 
 initial begin
-	$readmemh(full_path, rom_mem);
+	$readmemh(FILE, rom_mem);
 end
 
 logic	[DW-1:0]		rom_mem[0:4095];

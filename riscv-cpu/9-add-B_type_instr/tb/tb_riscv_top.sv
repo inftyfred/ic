@@ -57,7 +57,7 @@ initial begin
 				repeat(3) $display("***************************");
 				$display("\n");
 				for(int i = 0; i < 32; i++) begin
-					$display("regs[%d] = %d", i, tb_riscv_top.u1_riscv_inst.u1_register_inst.regs[i]);
+					$display("regs[%0d] = %0d", i, tb_riscv_top.u1_riscv_inst.u1_register_inst.regs[i]);
 				end	
 			end
 			else begin
@@ -67,9 +67,9 @@ initial begin
 				$display("%s", `FILE, "\t test failed !!!");
 				$display("\n");
 				repeat(3) $display("***************************");
-				$display("the failed test case is test[%d]", x3);
+				$display("the failed test case is test[%0d]", x3);
 				for(int i = 0; i < 32; i++) begin
-					$display("regs[%d] = %d", i, tb_riscv_top.u1_riscv_inst.u1_register_inst.regs[i]);
+					$display("regs[%0d] = %0d", i, tb_riscv_top.u1_riscv_inst.u1_register_inst.regs[i]);
 				end	
 			end
 		end

@@ -1,8 +1,12 @@
 
-
 `define	AW	32
 `define	DW	32
-`define	FILE	"instr.txt"
+
+`ifdef	OS_WINDOWS
+	`define	FILE	"oinstr.txt"
+`else
+	`define	FILE	"../test_data/instr.txt"
+`endif
 
 //I type inst
 `define	INST_TYPE_I			7'b0010011

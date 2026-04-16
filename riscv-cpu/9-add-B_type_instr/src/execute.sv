@@ -70,6 +70,32 @@ always_comb	begin
 					jump_addr	=	'h0;
 					jump_hold	=	1'b0;
 				end
+				`INST_SRI: begin
+					if(op2[11:5] == 'h00) begin
+						wr_reg_en	=	1'b1;
+						wr_reg_addr	=	rd;
+						wr_reg_data	=	$unsigned(op1) >> op2[4:0];
+						jump_en		= 	1'b0;
+						jump_addr	=	'h0;
+						jump_hold	=	1'b0;
+					end
+					else if(op2[11:5] == 'h20) begin
+						wr_reg_en	=	1'b1;
+						wr_reg_addr	=	rd;
+						wr_reg_data	=	$signed(op1) >>> op2[4:0];
+						jump_en		= 	1'b0;
+						jump_addr	=	'h0;
+						jump_hold	=	1'b0;
+					end
+					else begin
+						wr_reg_en	=	1'b0;
+						wr_reg_addr	=	'h0;
+						wr_reg_data	=	'h0;
+						jump_en		= 	1'b0;
+						jump_addr	=	'h0;
+						jump_hold	=	1'b0;
+					end
+				end
 				default: begin
 					wr_reg_en	=	1'b0;
 					wr_reg_addr	=	'h0;

@@ -32,24 +32,7 @@ assign	func3					=	instr_in[14:12];
 assign	rs1						=	instr_in[19:15];
 assign	rs2						=	instr_in[24:20];
 assign	funct7					=	instr_in[31:25];
-//assign	imm						=	instr_in[31:20];
 
-//always_comb	begin
-//	if(opcode == 7'b0010011 && func3 == 3'b000) begin //addi-Itype
-//		rd_rs1_addr =	rs1;
-//		rd_rs2_addr	=	5'h0;
-//		op1_out		=	rd_rs1_data;
-//		op2_out		=	{{20{imm[11]}},imm};
-//		wr_reg_addr	=	rd;
-//	end 
-//	else begin
-//		rd_rs1_addr =instr_in[31:20]	'h0;
-//		rd_rs2_addr =	'h0;
-//		op1_out		=	'h0;
-//		op2_out		=	'h0;
-//		wr_reg_addr	=	'h0;
-//	end
-//end
 
 //get imm
 always_comb begin
@@ -80,6 +63,12 @@ always_comb begin
 					op2_out		=	imm;
 					end
 				`INST_ANDI:begin
+					rd_rs1_addr =	rs1;
+					rd_rs2_addr	=	5'h0;
+					op1_out		=	rd_rs1_data;
+					op2_out		=	imm;
+				end
+				`INST_SRI:begin
 					rd_rs1_addr =	rs1;
 					rd_rs2_addr	=	5'h0;
 					op1_out		=	rd_rs1_data;

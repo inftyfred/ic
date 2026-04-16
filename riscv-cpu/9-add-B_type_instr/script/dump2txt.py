@@ -1,5 +1,6 @@
 import re
-import argparse
+import sys
+from pathlib import Path
 
 
 def extract_machine_code(asm_text):
@@ -15,68 +16,43 @@ def extract_machine_code(asm_text):
 
 
 def main():
-    parser = argparse.ArgumentParser(description='从RISC-V反汇编文件中提取机器码')
-    parser.add_argument('-i', '--input', required=True, help='输入的反汇编文件路径')
-    parser.add_argument('-o', '--output', default='machine_code.txt', help='输出文件路径（默认 machine_code.txt）')
-    args = parser.parse_args()
+    # 检查命令行参数数量
+    if len(sys.argv) != 2:
+        print("用法: python extract_machine_code.py <dump文件路径>")
+        sys.exit(1)
 
-    with open(args.input, 'r') as f:
-        asm_text = f.read()
+    input_path = Path(sys.argv[1])
 
-    codes = extract_machine_code(asm_text)
+    # 检查输入文件是否存在
+    if not input_path.exists():
+        print(f"错误: 文件 '{input_path}' 不存在")
+        sys.exit(1)
 
-    with open(args.output, 'w') as f:
-        for code in codes:
-            f.write(code + '\n')
+    # 生成输出文件路径：替换扩展名为 .txt，如果没有扩展名则直接加 .txt
+    output_path = input_path.with_suffix('.txt')
 
-    print(f'提取完成，共 {len(codes)} 条指令，已写入 {args.output}')
+    # 读取输入文件内容
+    try:
+        with open(input_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+    except Exception as e:
+        print(f"读取文件失败: {e}")
+        sys.exit(1)
+
+    # 提取机器码
+    machine_codes = extract_machine_code(content)
+
+    # 写入输出文件，每行一个机器码
+    try:
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write('\n'.join(machine_codes))
+    except Exception as e:
+        print(f"写入文件失败: {e}")
+        sys.exit(1)
+
+    print(f"成功提取 {len(machine_codes)} 条机器码，已保存到: {output_path}")
 
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

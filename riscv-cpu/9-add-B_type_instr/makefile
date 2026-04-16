@@ -1,5 +1,5 @@
 
-.PHONY:compile sim verdi clean cleanall
+.PHONY:compile sim verdi clean cleanall 
 
 compile:
 	echo "vcs编译中……"
