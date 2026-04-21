@@ -1,0 +1,86 @@
+Magic 271485
+Revision Verdi_O-2018.09-SP2
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 27 1608 434 246 194
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/home/infty/ic/riscv-cpu/uart_veritify/sim/dump.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 2583657142.176937 2661748274.712761
+cursor 2592925000.000000
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+userMarker 2470425000 M1 ID_GREEN5 long_dashed
+
+; visible top row signal index
+top 5
+; marker line index
+markerPos 14
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByChange
+
+
+addGroup "dut"
+activeDirFile "" "/home/infty/ic/riscv-cpu/uart_veritify/sim/dump.fsdb"
+addSignal -h 15 /tb_uart/dut/clk
+addSignal -h 15 -holdScope rst_n
+addSignal -h 15 -holdScope send_data[7:0]
+addSignal -h 15 -holdScope send_done
+addSignal -h 15 -holdScope send_en
+addSignal -h 15 -holdScope txd
+addSignal -h 15 /tb_uart/rxd
+addSignal -h 15 /tb_uart/dut/u_uart_rx/baud_tick_x16
+addSignal -h 15 -UNSIGNED -holdScope next_state[2:0]
+addSignal -h 15 -UNSIGNED -holdScope state[2:0]
+addSignal -h 15 -holdScope shift_reg[7:0]
+addSignal -h 15 /tb_uart/dut/parity_err
+addSignal -h 15 -holdScope recv_data[15:0]
+addSignal -h 15 /tb_uart/dut/u_uart_rx/byte_cnt[2:0]
+addSignal -h 15 /tb_uart/dut/u_uart_tx/baud_tick
+addSignal -h 15 /tb_uart/test_num[31:0]
+addSignal -h 15 /tb_uart/dut/recv_vld
+addSignal -h 15 -UNSIGNED /tb_uart/dut/u_uart_rx/state[2:0]
+addSignal -h 15 -UNSIGNED -holdScope next_state[2:0]
+addSignal -h 15 -holdScope shift_reg[7:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope recv_buf[15:0]
+addSignal -h 15 -holdScope byte_cnt[2:0]
+addGroup "uart_txG2"
+addSignal -h 15 /tb_uart/dut/u_uart_tx/baud_tick
+addSignal -h 15 -UNSIGNED -HEX -holdScope send_data[7:0]
+addSignal -h 15 -UNSIGNED -holdScope state[2:0]
+addSignal -h 15 -UNSIGNED -holdScope next_state[2:0]
+addSignal -h 15 -holdScope tx_shift_reg[7:0]
+addSignal -h 15 /tb_uart/dut/txd
+addSignal -h 15 /tb_uart/dut/u_uart_tx/send_buf[7:0]
+addGroup "G3"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+
