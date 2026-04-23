@@ -23,7 +23,7 @@ module uart_tx #(
     state_t state, next_state;
     logic [7:0] tx_shift_reg;
     logic [3:0] bit_cnt;
-    logic [2:0] byte_cnt;
+    logic [$clog2(SEND_NBYTE)-1:0] byte_cnt;
     logic [SEND_NBYTE*8-1:0] send_buf;
     logic parity_bit;
 
@@ -84,6 +84,7 @@ module uart_tx #(
                 START_BIT: begin
                     txd <= 1'b0;  // 修正：立即发送起始位
                     tx_shift_reg <= send_buf[byte_cnt*8 +: 8];
+                    parity_bit <= calc_parity(send_buf[byte_cnt*8 +: 8]);
                     if (baud_tick) begin
                         tx_shift_reg <= send_buf[byte_cnt*8 +: 8];
                         bit_cnt <= 0;
@@ -94,12 +95,11 @@ module uart_tx #(
                     txd <= tx_shift_reg[0];
                     if (baud_tick) begin
                         txd <= tx_shift_reg[0];
-                        // 修正：先计算校验（用移位后的值）
-                        if (bit_cnt == 7) begin
-                            parity_bit <= calc_parity({1'b0, tx_shift_reg[7:1]});
-                        end else begin
-                            bit_cnt <= bit_cnt + 1;
-                        end
+                        //if (bit_cnt == 7) begin
+                            //parity_bit <= calc_parity({1'b0, tx_shift_reg[7:1]});
+                        //end else begin
+                        bit_cnt <= bit_cnt + 1;
+                        //end
                         tx_shift_reg <= {1'b0, tx_shift_reg[7:1]};
                     end
                 end

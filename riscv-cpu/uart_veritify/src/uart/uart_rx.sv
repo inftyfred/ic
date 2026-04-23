@@ -24,9 +24,11 @@ module uart_rx #(
     logic [3:0] sample_cnt;
     logic [7:0] shift_reg;
     logic [2:0] bit_cnt;
-    logic [2:0] byte_cnt;
+    logic [$clog2(RECV_NBYTE)-1:0] byte_cnt;
     logic [RECV_NBYTE*8-1:0] recv_buf;
     logic parity_expected;
+	logic rxd_fall;
+	logic rxd_d0;
 
     function automatic logic calc_parity(logic [7:0] data);
         if (PARITY == "NONE")
@@ -37,12 +39,24 @@ module uart_rx #(
             return ^data;
     endfunction
 
+	
+
+	always_ff @(posedge clk or negedge rst_n) begin
+		if(!rst_n) 
+			rxd_d0 <= 1'b1;
+		else begin
+			rxd_d0 <= rxd;
+		end
+	end
+
+	assign rxd_fall = !rxd && rxd_d0;
+
     // 状态机组合逻辑
     always_comb begin
         next_state = state;
         case (state)
             IDLE: 
-                if (!rxd) next_state = START_DETECT;
+                if (rxd_fall) next_state = START_DETECT;
             
             START_DETECT: 
                 if (baud_tick_x16 && sample_cnt == 7 && !rxd)
@@ -60,7 +74,7 @@ module uart_rx #(
             
             STOP_CHECK: 
                 if (baud_tick_x16 && sample_cnt == 15)
-                    next_state = (byte_cnt == RECV_NBYTE - 1) ? IDLE : START_DETECT;
+                    next_state = IDLE;//(byte_cnt == RECV_NBYTE - 1) ? IDLE : START_DETECT;
             
             default: next_state = IDLE;
         endcase
@@ -82,8 +96,8 @@ module uart_rx #(
 
             case (state)
                 IDLE: begin
-                    if (!rxd) begin
-                        sample_cnt <= sample_cnt + 1;
+                    if (rxd_fall) begin
+                        sample_cnt <= 0;//sample_cnt + 1;
                         if(byte_cnt > RECV_NBYTE - 1) begin
 							byte_cnt   <= 0;
 							parity_err <= 1'b0;

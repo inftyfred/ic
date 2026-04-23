@@ -1,12 +1,12 @@
 `timescale 1ns/1ps
-
+`define PARITY "EVEN"
 module tb_uart;
     //===========================================================================
     // 参数定义
     //===========================================================================
-    parameter CLK_FREQ   = 100_000_000;  // 100MHz
+    parameter CLK_FREQ   = 50_000_000;  // 100MHz
     parameter BAUDRATE   = 115200;
-    parameter CLK_PERIOD = 10;           // 10ns = 100MHz
+    parameter CLK_PERIOD = 20;           // 10ns = 100MHz
 
     // 计算bit周期（用于验证）
     parameter BIT_PERIOD_NS = 1_000_000_000 / BAUDRATE;  // ~8680ns
@@ -37,6 +37,9 @@ module tb_uart;
     integer pass_count = 0;
     integer fail_count = 0;
 
+	logic [SEND_NBYTE*8-1:0] send_1;
+	assign send_1 = "pass success !!!";
+
     // 接收监控
     logic [15:0] expected_recv_data;
 
@@ -46,7 +49,7 @@ module tb_uart;
     uart_top #(
         .CLK_FREQ  (CLK_FREQ),
         .BAUDRATE  (BAUDRATE),
-        .PARITY    ("EVEN"),
+        .PARITY    (`PARITY),
         .SEND_NBYTE(SEND_NBYTE),
         .RECV_NBYTE(RECV_NBYTE)
     ) dut (
@@ -119,7 +122,7 @@ module tb_uart;
     // 任务：发送一个字符（外部驱动到rxd）
     // 模拟外部设备发送数据到DUT的接收端
     //===========================================================================
-    task automatic send_char_to_dut(input logic [7:0] data, input string parity_type = "EVEN");
+    task automatic send_char_to_dut(input logic [7:0] data, input string parity_type = `PARITY);
         logic parity_bit;
         integer i;
         begin
@@ -134,6 +137,7 @@ module tb_uart;
             $display("[DRIVE] @%0t: Sending char to DUT, data=0x%02h, parity=%b", $time, data, parity_bit);
 
             // 起始位 (1 bit period)
+			#0.1;
             rxd = 0;
             #(BIT_PERIOD_NS);
 
@@ -161,18 +165,18 @@ module tb_uart;
     //===========================================================================
     // 任务：等待接收完成并验证
     //===========================================================================
-    task automatic wait_recv_and_check(input logic [15:0] expected_data);
+    task automatic wait_recv_and_check(input logic [RECV_NBYTE*8-1:0] expected_data);
         begin
             // 等待接收完成
             @(posedge recv_vld);
             #(CLK_PERIOD);
 
             if (recv_data === expected_data && !parity_err) begin
-                $display("[PASS] Data match! Expected=0x%04h, Received=0x%04h", 
+                $display("[PASS] Data match! Expected=0x%0h, Received=0x%0h", 
                          expected_data, recv_data);
                 pass_count = pass_count + 1;
             end else begin
-                $display("[FAIL] Data mismatch! Expected=0x%04h, Received=0x%04h, parity_err=%b", 
+                $display("[FAIL] Data mismatch! Expected=0x%0h, Received=0x%0h, parity_err=%b", 
                          expected_data, recv_data, parity_err);
                 fail_count = fail_count + 1;
             end
@@ -182,7 +186,7 @@ module tb_uart;
     //===========================================================================
     // 任务：通过DUT发送数据（内部发送）
     //===========================================================================
-    task automatic dut_send(input logic [15:0] data);
+    task automatic dut_send(input logic [SEND_NBYTE*8-1:0] data);
         begin
             $display("[DRIVE] @%0t: Trigger DUT TX, data=0x%0h", $time, data);
             @(posedge clk);
@@ -197,6 +201,21 @@ module tb_uart;
             #(CLK_PERIOD * 10);
         end
     endtask
+
+	task automatic dut_send1();
+		begin
+			$display("[%0t]send 1", $time);
+			@(posedge clk);
+			send_data = send_1;
+			send_en = 1;
+			@(posedge clk);
+			send_en = 0;
+			send_data = 8'h00;
+
+			@(posedge send_done);
+			#(CLK_PERIOD * 10);
+		end
+	endtask
 
 
 
@@ -257,6 +276,44 @@ endtask
         $display("\n[TEST %0d] Reset Test", test_num);
         system_reset();
 
+        //test_num = 5;
+        //$display("\n[TEST %0d] Loopback Test (TX->RX)", test_num);
+        //system_reset();
+
+        //// 将TX输出连接到RX输入（外部环回）
+        //force rxd = txd;  // 这个会在initial块外持续驱动，需要特殊处理
+
+        //// 使用force/release进行环回
+        //fork
+        //    begin
+        //        // 发送端
+		//		repeat(6) begin
+		//			dut_send("pass success !!!");
+		//			dut_send("pass failed  !!!");
+		//		end
+        //        //repeat(3) begin
+        //        //    dut_send(16'h5555);
+        //        //    #(BIT_PERIOD_NS * 4);
+        //        //    dut_send(16'h1111);
+        //        //    #(BIT_PERIOD_NS * 4);
+        //        //    dut_send(16'h6666);
+        //        //    #(BIT_PERIOD_NS * 4);
+        //        //end
+        //    end
+        //    begin
+        //        // 接收端验证
+        //        repeat(3) begin
+        //            @(posedge recv_vld);
+        //            #(CLK_PERIOD);
+        //            $display("[LOOPBACK] Received: 0x%0h", recv_data);
+        //        end
+        //    end
+        //join
+
+		//release rxd;
+
+
+
         // 验证复位后状态
         if (txd === 1'b1 && recv_vld === 1'b0 && send_done === 1'b0) begin
             $display("[PASS] Reset state correct");
@@ -266,6 +323,8 @@ endtask
                      txd, recv_vld, send_done);
             fail_count = fail_count + 1;
         end
+
+		dut_send1();
 
         //-------------------------------------------------
         // 测试2：单字节接收测试
@@ -327,21 +386,25 @@ endtask
         fork
             begin
                 // 发送端
-                //repeat(3) begin
-                    dut_send(16'hda55);
+			//	repeat(3) begin
+			//		dut_send("pass success !!!");
+			//		dut_send("pass failed  !!!");
+			//	end
+                repeat(3) begin
+                    dut_send(16'h5555);
                     #(BIT_PERIOD_NS * 4);
-                    dut_send(16'h1234);
+                    dut_send(16'h1111);
                     #(BIT_PERIOD_NS * 4);
-                    dut_send(16'h5678);
+                    dut_send(16'h6666);
                     #(BIT_PERIOD_NS * 4);
-                //end
+                end
             end
             begin
                 // 接收端验证
                 repeat(3) begin
                     @(posedge recv_vld);
                     #(CLK_PERIOD);
-                    $display("[LOOPBACK] Received: 0x%04h", recv_data);
+                    $display("[LOOPBACK] Received: 0x%0h", recv_data);
                 end
             end
         join
