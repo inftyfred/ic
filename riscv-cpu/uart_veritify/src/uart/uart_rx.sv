@@ -2,6 +2,7 @@
 
 module uart_rx #(
     parameter RECV_NBYTE = 2,
+	parameter ENDIAN 	 = "BIG", //大小端序
     parameter PARITY     = "EVEN"
 ) (
     input  logic clk,
@@ -28,7 +29,7 @@ module uart_rx #(
     logic [RECV_NBYTE*8-1:0] recv_buf;
     logic parity_expected;
 	logic rxd_fall;
-	logic rxd_d0;
+	logic rxd_d0, rxd_d1;
 
     function automatic logic calc_parity(logic [7:0] data);
         if (PARITY == "NONE")
@@ -42,14 +43,16 @@ module uart_rx #(
 	
 
 	always_ff @(posedge clk or negedge rst_n) begin
-		if(!rst_n) 
+		if(!rst_n) begin 
 			rxd_d0 <= 1'b1;
-		else begin
+			rxd_d1 <= 1'b1;
+		end else begin
 			rxd_d0 <= rxd;
+			rxd_d1 <= rxd_d0;
 		end
 	end
 
-	assign rxd_fall = !rxd && rxd_d0;
+	assign rxd_fall = !rxd_d0 && rxd_d1;
 
     // 状态机组合逻辑
     always_comb begin
@@ -157,7 +160,10 @@ module uart_rx #(
                             recv_buf[byte_cnt*8 +: 8] <= shift_reg;
                             if (byte_cnt == RECV_NBYTE - 1) begin
                                 recv_vld  <= 1'b1;
-                                recv_data <= recv_buf;
+								if(ENDIAN == "BIG")
+									recv_data <= {<<8{recv_buf}};
+								else
+	                                recv_data <= recv_buf;
                                 byte_cnt  <= 0;
                             end else begin
                                 byte_cnt <= byte_cnt + 1;

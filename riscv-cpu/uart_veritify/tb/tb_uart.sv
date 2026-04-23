@@ -7,6 +7,7 @@ module tb_uart;
     parameter CLK_FREQ   = 50_000_000;  // 100MHz
     parameter BAUDRATE   = 115200;
     parameter CLK_PERIOD = 20;           // 10ns = 100MHz
+	parameter ENDIAN	 = "SMALL";
 
     // 计算bit周期（用于验证）
     parameter BIT_PERIOD_NS = 1_000_000_000 / BAUDRATE;  // ~8680ns
@@ -50,6 +51,7 @@ module tb_uart;
         .CLK_FREQ  (CLK_FREQ),
         .BAUDRATE  (BAUDRATE),
         .PARITY    (`PARITY),
+		.ENDIAN	   (ENDIAN),
         .SEND_NBYTE(SEND_NBYTE),
         .RECV_NBYTE(RECV_NBYTE)
     ) dut (
@@ -351,14 +353,17 @@ endtask
         $display("\n[TEST %0d] Multi-frame RX Test", test_num);
         system_reset();
 
-        repeat(3) begin
+        repeat(5) begin
             fork
                 begin
                     send_char_to_dut(8'h12);
                     send_char_to_dut(8'h34);
+                    send_char_to_dut(8'haa);
+                    send_char_to_dut(8'h55);
                 end
                 begin
                     wait_recv_and_check(16'h3412);
+                    wait_recv_and_check(16'h55aa);
                 end
             join
             #(BIT_PERIOD_NS * 4);
@@ -393,9 +398,9 @@ endtask
                 repeat(3) begin
                     dut_send(16'h5555);
                     #(BIT_PERIOD_NS * 4);
-                    dut_send(16'h1111);
+                    dut_send(16'h1234);
                     #(BIT_PERIOD_NS * 4);
-                    dut_send(16'h6666);
+                    dut_send(16'h9595);
                     #(BIT_PERIOD_NS * 4);
                 end
             end

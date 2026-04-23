@@ -4,6 +4,7 @@ module uart_top #(
     parameter CLK_FREQ   = 100_000_000,
     parameter BAUDRATE   = 115200,
     parameter PARITY     = "EVEN",
+	parameter ENDIAN 	 = "BIG", //大小端序
     parameter SEND_NBYTE = 1,
     parameter RECV_NBYTE = 2
 ) (
@@ -32,6 +33,7 @@ module uart_top #(
 
     uart_tx #(
         .SEND_NBYTE(SEND_NBYTE),
+		.ENDIAN		(ENDIAN),
         .PARITY    (PARITY)
     ) u_uart_tx (
         .clk       (clk),
@@ -45,6 +47,7 @@ module uart_top #(
 
     uart_rx #(
         .RECV_NBYTE(RECV_NBYTE),
+		.ENDIAN(ENDIAN),
         .PARITY    (PARITY)
     ) u_uart_rx (
         .clk           (clk),

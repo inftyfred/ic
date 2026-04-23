@@ -2,6 +2,7 @@
 
 module uart_tx #(
     parameter SEND_NBYTE = 1,
+	parameter ENDIAN 	 = "BIG", //大小端序
     parameter PARITY     = "EVEN"
 ) (
     input  logic clk,
@@ -26,6 +27,7 @@ module uart_tx #(
     logic [$clog2(SEND_NBYTE)-1:0] byte_cnt;
     logic [SEND_NBYTE*8-1:0] send_buf;
     logic parity_bit;
+	logic start, start1;
 
     function automatic logic calc_parity(logic [7:0] data);
         if (PARITY == "NONE")
@@ -40,7 +42,7 @@ module uart_tx #(
         next_state = state;
         case (state)
             IDLE: 
-                if (send_en) next_state = START_BIT;
+                if (start1) next_state = START_BIT;
             
             START_BIT: 
                 if (baud_tick) next_state = DATA_BITS;
@@ -76,12 +78,23 @@ module uart_tx #(
                 IDLE: begin
                     txd <= 1'b1;
                     if (send_en) begin
-                        send_buf <= send_data;
+						if(ENDIAN == "BIG")
+							send_buf <= {<<8{send_data}};
+						else
+	                        send_buf <= send_data;
                         byte_cnt <= 0;
+						start <= 1'b1;//对齐时钟
                     end
+					if(baud_tick && start) begin
+						start1 <= 1'b1;	
+					end else begin
+						start1 <= 1'b0;
+					end
                 end
 
                 START_BIT: begin
+					start <= 1'b0;
+					start1 <= 1'b0;
                     txd <= 1'b0;  // 修正：立即发送起始位
                     tx_shift_reg <= send_buf[byte_cnt*8 +: 8];
                     parity_bit <= calc_parity(send_buf[byte_cnt*8 +: 8]);
