@@ -99,7 +99,7 @@ rom #(
 if2id #(
 	.AW(AW),	
 	.DW(DW)
-)(
+)u1_if2id_inst(
 	.clk			(clk			)	,
 	.rst_n			(rst_n			)	,
 	.instr_hold		(jump_en		)	,

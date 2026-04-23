@@ -1,7 +1,7 @@
 
 `define	AW	32
 `define	DW	32
-`define CLK_FREQ	50_000_000
+`define CLK_FREQ	100_000_000
 
 `define	TX_BYTE		2	
 `define	RX_BYTE		24
