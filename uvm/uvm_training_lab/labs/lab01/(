@@ -1,0 +1,334 @@
+Command: /home/infty/ic/uvm/uvm_training_lab/labs/lab01/./simv +UVM_VERBOSITY=UVM_LOW -l vcs.log +UVM_TESTNAME=my_test @/usr/bin/test ( -eq 1 ) -a ( -eq 1 )
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 21 07:02 2026
+----------------------------------------------------------------
+UVM-1.1d
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO /home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(370) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_WARNING @ 0: reporter [BDTYP] Cannot create a component of type 'my_test' because it is not registered with the factory.
+UVM_FATAL @ 0: reporter [INVTST] Requested test from command line +UVM_TESTNAME=my_test not found.
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    1
+UVM_WARNING :    1
+UVM_ERROR :    0
+UVM_FATAL :    1
+** Report counts by id
+[BDTYP]     1
+[INVTST]     1
+[NO_DPI_TSTNAME]     1
+$finish called from file "/home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_report_object.svh", line 292.
+$finish at simulation time                    0
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 0 ns
+CPU Time:      0.150 seconds;       Data structure size:   0.2Mb
+Tue Jul 21 07:02:11 2026
+Command: /home/infty/ic/uvm/uvm_training_lab/labs/lab01/./simv +UVM_VERBOSITY=UVM_LOW -l vcs.log +UVM_TESTNAME=my_test @/usr/bin/test ( -eq 1 ) -a ( -eq 1 )
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 22 01:09 2026
+----------------------------------------------------------------
+UVM-1.1d
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO /home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(370) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_WARNING @ 0: reporter [BDTYP] Cannot create a component of type 'my_test' because it is not registered with the factory.
+UVM_FATAL @ 0: reporter [INVTST] Requested test from command line +UVM_TESTNAME=my_test not found.
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    1
+UVM_WARNING :    1
+UVM_ERROR :    0
+UVM_FATAL :    1
+** Report counts by id
+[BDTYP]     1
+[INVTST]     1
+[NO_DPI_TSTNAME]     1
+$finish called from file "/home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_report_object.svh", line 292.
+$finish at simulation time                    0
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 0 ns
+CPU Time:      0.150 seconds;       Data structure size:   0.2Mb
+Wed Jul 22 01:09:59 2026
+Command: /home/infty/ic/uvm/uvm_training_lab/labs/lab01/./simv +UVM_VERBOSITY=UVM_LOW -l vcs.log +UVM_TESTNAME=my_test @/usr/bin/test ( -eq 1 ) -a ( -eq 1 )
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 22 01:39 2026
+----------------------------------------------------------------
+UVM-1.1d
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO /home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(370) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_INFO @ 0: reporter [RNTST] Running test my_test...
+UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+uvm_test_top: (my_test@454) {
+  m_env: (my_env@462) {
+    m_agent: (master_agent@474) {
+      m_driv: (my_driver@606) {
+        rsp_port: (uvm_analysis_port@623) @623 
+        seq_item_port: (uvm_seq_item_pull_port@614) @614 
+      }
+      m_moni: (my_monitor@632) @632 
+      m_seqr: (uvm_sequencer@483) {
+        rsp_export: (uvm_analysis_export@491) @491 
+        seq_item_export: (uvm_seq_item_pull_imp@597) @597 
+        arbitration_queue: - 
+        lock_queue: - 
+        num_last_reqs: 'd1 
+        num_last_rsps: 'd1 
+      }
+    }
+  }
+}
+
+UVM_INFO /home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 1100: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    4
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[NO_DPI_TSTNAME]     1
+[RNTST]     1
+[TEST_DONE]     1
+[UVMTOP]     1
+$finish called from file "/home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh", line 430.
+$finish at simulation time                 1100
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1100 ns
+CPU Time:      0.160 seconds;       Data structure size:   0.3Mb
+Wed Jul 22 01:39:12 2026
+Command: /home/infty/ic/uvm/uvm_training_lab/labs/lab01/./simv +UVM_VERBOSITY=UVM_LOW -l vcs.log +UVM_TESTNAME=my_test @/usr/bin/test ( -eq 1 ) -a ( -eq 1 )
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 22 01:40 2026
+----------------------------------------------------------------
+UVM-1.1d
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO /home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(370) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_INFO @ 0: reporter [RNTST] Running test my_test...
+UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+uvm_test_top: (my_test@454) {
+  m_env: (my_env@462) {
+    m_agent: (master_agent@474) {
+      m_driv: (my_driver@606) {
+        rsp_port: (uvm_analysis_port@623) @623 
+        seq_item_port: (uvm_seq_item_pull_port@614) @614 
+      }
+      m_moni: (my_monitor@632) @632 
+      m_seqr: (uvm_sequencer@483) {
+        rsp_export: (uvm_analysis_export@491) @491 
+        seq_item_export: (uvm_seq_item_pull_imp@597) @597 
+        arbitration_queue: - 
+        lock_queue: - 
+        num_last_reqs: 'd1 
+        num_last_rsps: 'd1 
+      }
+    }
+  }
+}
+
+UVM_INFO /home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 1100: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    4
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[NO_DPI_TSTNAME]     1
+[RNTST]     1
+[TEST_DONE]     1
+[UVMTOP]     1
+$finish called from file "/home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh", line 430.
+$finish at simulation time                 1100
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1100 ns
+CPU Time:      0.160 seconds;       Data structure size:   0.3Mb
+Wed Jul 22 01:40:50 2026
+Command: /home/infty/ic/uvm/uvm_training_lab/labs/lab01/./simv +UVM_VERBOSITY=UVM_LOW -l vcs.log +UVM_TESTNAME=my_test @/usr/bin/test ( -eq 1 ) -a ( -eq 1 )
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 22 01:45 2026
+----------------------------------------------------------------
+UVM-1.1d
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO /home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(370) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_INFO @ 0: reporter [RNTST] Running test my_test...
+UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+uvm_test_top: (my_test@454) {
+  m_env: (my_env@462) {
+    m_agent: (master_agent@474) {
+      m_driv: (my_driver@606) {
+        rsp_port: (uvm_analysis_port@623) @623 
+        seq_item_port: (uvm_seq_item_pull_port@614) @614 
+      }
+      m_moni: (my_monitor@632) @632 
+      m_seqr: (uvm_sequencer@483) {
+        rsp_export: (uvm_analysis_export@491) @491 
+        seq_item_export: (uvm_seq_item_pull_imp@597) @597 
+        arbitration_queue: - 
+        lock_queue: - 
+        num_last_reqs: 'd1 
+        num_last_rsps: 'd1 
+      }
+    }
+  }
+}
+
+UVM_INFO /home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 1100: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    4
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[NO_DPI_TSTNAME]     1
+[RNTST]     1
+[TEST_DONE]     1
+[UVMTOP]     1
+$finish called from file "/home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh", line 430.
+$finish at simulation time                 1100
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1100 ns
+CPU Time:      0.170 seconds;       Data structure size:   0.3Mb
+Wed Jul 22 01:45:02 2026
+Command: /home/infty/ic/uvm/uvm_training_lab/labs/lab01/./simv +UVM_VERBOSITY=UVM_LOW -l vcs.log +UVM_TESTNAME=my_test @/usr/bin/test ( -eq 1 ) -a ( -eq 1 )
+Chronologic VCS simulator copyright 1991-2018
+Contains Synopsys proprietary information.
+Compiler version O-2018.09-SP2_Full64; Runtime version O-2018.09-SP2_Full64;  Jul 22 01:48 2026
+----------------------------------------------------------------
+UVM-1.1d
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO /home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh(370) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+UVM_INFO @ 0: reporter [RNTST] Running test my_test...
+UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+uvm_test_top: (my_test@454) {
+  m_env: (my_env@462) {
+    m_agent: (master_agent@474) {
+      m_driv: (my_driver@606) {
+        rsp_port: (uvm_analysis_port@623) @623 
+        seq_item_port: (uvm_seq_item_pull_port@614) @614 
+      }
+      m_moni: (my_monitor@632) @632 
+      m_seqr: (uvm_sequencer@483) {
+        rsp_export: (uvm_analysis_export@491) @491 
+        seq_item_export: (uvm_seq_item_pull_imp@597) @597 
+        arbitration_queue: - 
+        lock_queue: - 
+        num_last_reqs: 'd1 
+        num_last_rsps: 'd1 
+      }
+    }
+  }
+}
+
+UVM_INFO /home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 1100: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    4
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[NO_DPI_TSTNAME]     1
+[RNTST]     1
+[TEST_DONE]     1
+[UVMTOP]     1
+$finish called from file "/home/infty/ic/uvm/uvm_training_lab/uvm-1.1d/src/base/uvm_root.svh", line 430.
+$finish at simulation time                 1100
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 1100 ns
+CPU Time:      0.160 seconds;       Data structure size:   0.3Mb
+Wed Jul 22 01:48:03 2026
