@@ -24,5 +24,4 @@ class master_agent extends uvm_agent;
 			m_driv.seq_item_port.connect(m_seqr.seq_item_export);
 	endfunction
 
-
 endclass:master_agent
