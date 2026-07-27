@@ -22,6 +22,7 @@ class master_agent extends uvm_agent;
 
 		uvm_config_db#(int unsigned)::set(this, "m_driv", "pad_cycles", m_agent_config.pad_cycles);
 		uvm_config_db#(virtual dut_interface)::set(this, "m_driv", "m_vif", m_agent_config.m_vif);
+		uvm_config_db#(virtual dut_interface)::set(this, "m_moni", "m_vif", m_agent_config.m_vif);
 
 		if(is_active == UVM_ACTIVE) begin
 			m_seqr = my_sequencer::type_id::create("m_seqr", this);
