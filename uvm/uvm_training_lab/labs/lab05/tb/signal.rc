@@ -1,0 +1,114 @@
+Magic 271485
+Revision Verdi_O-2018.09-SP2
+
+; Window Layout <x> <y> <width> <height> <signalwidth> <valuewidth>
+viewPort 0 27 1608 397 145 134
+
+; File list:
+; openDirFile [-d delimiter] [-s time_offset] [-rf auto_bus_rule_file] path_name file_name
+openDirFile -d / "" "/home/infty/ic/uvm/uvm_training_lab/labs/lab04/build/dump.fsdb"
+
+; file time scale:
+; fileTimeScale ### s|ms|us|ns|ps
+
+; signal spacing:
+signalSpacing 5
+
+; windowTimeUnit is used for zoom, cursor & marker
+; waveform viewport range
+zoom 13358427.331034 14730336.227586
+cursor 14510000.000000
+marker 0.000000
+
+; user define markers
+; userMarker time_pos marker_name color linestyle
+userMarker 13770000 M0 ID_GREEN5 long_dashed
+userMarker 14510000 M1 ID_GREEN5 long_dashed
+
+; visible top row signal index
+top 0
+; marker line index
+markerPos 12
+
+; event list
+; addEvent event_name event_expression
+; curEvent event_name
+
+
+
+COMPLEX_EVENT_BEGIN
+
+
+COMPLEX_EVENT_END
+
+
+
+; toolbar current search type
+; curSTATUS search_type
+curSTATUS ByRising
+
+
+addGroup "top"
+addSubGroup "inf(dut_interface)"
+activeDirFile "" "/home/infty/ic/uvm/uvm_training_lab/labs/lab04/build/dump.fsdb"
+addSignal -h 15 /top/inf/clk
+addSignal -h 15 -holdScope reset_n
+addSignal -h 15 -UNSIGNED -HEX -holdScope din[15:0]
+addSignal -h 15 -UNSIGNED -HEX -holdScope dout[15:0]
+addSignal -h 15 -holdScope din[14]
+addSignal -c ID_YELLOW5 -ls solid -lw 1 -h 15 -holdScope din[13]
+addSignal -c ID_YELLOW5 -ls solid -lw 1 -h 15 -holdScope frame_n[13]
+addSignal -c ID_YELLOW5 -ls solid -lw 1 -h 15 -holdScope valid_n[13]
+addSignal -h 15 -holdScope din[2]
+addSignal -h 15 -holdScope frame_n[15:0]
+addSignal -h 15 -holdScope valid_n[15:0]
+addSignal -h 15 -holdScope busy_n[15:0]
+addSignal -h 15 -holdScope valido_n[15:0]
+addSignal -h 15 -holdScope frameo_n[15:0]
+endSubGroup "inf(dut_interface)"
+addSubGroup "inf_host(host_io)" -e FALSE
+addSignal -h 15 /top/inf_host/clk
+addSignal -h 15 -holdScope wr_n
+addSignal -h 15 -holdScope address[15:0]
+addSignal -h 15 -holdScope data[15:0]
+endSubGroup "inf_host(host_io)"
+addSubGroup "inf_router(router_io)" -e FALSE
+addSignal -h 15 /top/inf_router/clk
+addSignal -h 15 -holdScope reset_n
+addSignal -h 15 -holdScope frame_n[15:0]
+addSignal -h 15 -holdScope valid_n[15:0]
+addSignal -h 15 -holdScope din[15:0]
+addSignal -h 15 -holdScope dout[15:0]
+addSignal -h 15 -holdScope busy_n[15:0]
+addSignal -h 15 -holdScope valido_n[15:0]
+addSignal -h 15 -holdScope frameo_n[15:0]
+endSubGroup "inf_router(router_io)"
+addGroup "G2"
+
+; getSignalForm Scope Hierarchy Status
+; active file of getSignalForm
+activeDirFile "" "/home/infty/ic/uvm/uvm_training_lab/labs/lab04/build/dump.fsdb"
+
+GETSIGNALFORM_SCOPE_HIERARCHY_BEGIN
+getSignalForm close
+
+"/top"
+"/top/inf"
+
+SCOPE_LIST_BEGIN
+"/top"
+"/top/inf"
+"/top/dut"
+"/top/inf_host"
+"/top/inf_router"
+"/top/inf/driver"
+"/top/inf/driver_cb"
+"/top/inf/imonitor"
+"/top/inf/imonitor_cb"
+"/top/inf/omonitor_cb"
+"/top/inf/omonitor"
+SCOPE_LIST_END
+
+GETSIGNALFORM_SCOPE_HIERARCHY_END
+
+
