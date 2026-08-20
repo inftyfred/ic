@@ -33,20 +33,24 @@ module tb_huawei6;
     // clk0 为 clk1 的二倍频：clk0 周期 10ns，clk1 周期 20ns。
     initial begin
         clk0 = 1'b0;
-        forever #5 clk0 = ~clk0;
+        clk1 = 1'b0;
+        fork
+            forever #5 clk1 = ~clk1;
+            forever #10 clk0 = ~clk0;
+        join
     end
 
-    initial begin
-        clk1 = 1'b0;
-        forever #10 clk1 = ~clk1;
-    end
+    // initial begin
+    //     clk1 = 1'b0;
+    //     forever #10 clk1 = ~clk1;
+    // end
 
     // 复位释放后先选择 clk1，再切换到 clk0，再切回 clk1。
     initial begin
         rst = 1'b0;
         sel = 1'b0;
 
-        #17;
+        #10;
         rst = 1'b1;
         $display("[%0t ns] release reset, select clk1", $time);
 
