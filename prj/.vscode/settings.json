@@ -1,0 +1,7 @@
+{
+  "verilog.ctags.enabled": true,
+  "verilog.ctags.path": "/usr/bin/ctags",
+
+  "verilog.languageServer.svls.enabled": true,
+  "verilog.languageServer.svls.path": "/snap/bin/svls"
+}
