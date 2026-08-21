@@ -7,9 +7,9 @@ DEFAULT_ARGS_COMPILE = -cm line+tgl tb/top/top.sv
 DEFAULT_ARGS_RUN = -cm line+tgl +UVM_TESTNAME=my_test
 DEFAULT_ARGS_SIM = 
 
-.PHONY: compile run clean sim simreload help cleanall
+.PHONY: all compile run clean sim simreload help cleanall
 
-all:compile run
+all: compile run
 
 compile:
 	@echo "编译项目..."
@@ -37,7 +37,7 @@ simreload:
 
 cleanall:
 	@echo "clean all file..."
-	rm -rf build/ fsdb_wave/ wave/ logs/ *.log *.fsdb *.vcd csrc/ novas* verdiLog/ vc_hdrs.h ucli.key simv*
+	rm -rf build/ fsdb_wave/ wave/ logs/ *.log *.fsdb *.vcd csrc/ novas* verdiLog/ vc_hdrs.h ucli.key simv* 
 
 help:
 	@echo "可用目标:"

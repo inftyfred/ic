@@ -7,4 +7,5 @@ logs/
 csrc/ 
 novas* 
 verdiLog/
+uvm-1.1d/
 *.swp
