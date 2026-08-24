@@ -18,7 +18,7 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 
 # 目录路径
 BUILD_DIR="$PROJECT_ROOT/build"
-WAVE_DIR="$PROJECT_ROOT/wave"
+WAVE_DIR="$PROJECT_ROOT/fsdb_wave"
 LOG_DIR="$PROJECT_ROOT/logs"
 
 # 可执行文件路径
@@ -144,7 +144,8 @@ generate_run_options() {
     case $WAVE_TYPE in
         fsdb)
             options+=" +FSDB=1"
-            options+=" +WAVE_FILE=$WAVE_DIR/wave_${TEST_NAME}.fsdb"
+            #options+=" +WAVE_FILE=$WAVE_DIR/wave_${TEST_NAME}.fsdb"
+            options+=" +fsdbfile+$WAVE_DIR/wave_${TEST_NAME}.fsdb"
             ;;
         vcd)
             options+=" +VCD=1"
@@ -153,14 +154,15 @@ generate_run_options() {
         *)
             warn "不支持的波形类型: $WAVE_TYPE，使用默认 fsdb"
             options+=" +FSDB=1"
-            options+=" +WAVE_FILE=$WAVE_DIR/wave_${TEST_NAME}.fsdb"
+            options+=" +fsdbfile+$WAVE_DIR/wave_${TEST_NAME}.fsdb"
+            #options+=" +WAVE_FILE=$WAVE_DIR/wave_${TEST_NAME}.fsdb"
             ;;
     esac
 
     # 额外参数
-    if [ -n "$EXTRA_ARGS" ]; then
-        options+=" $EXTRA_ARGS"
-    fi
+    # if [ -n "$EXTRA_ARGS" ]; then
+    #     options+=" $EXTRA_ARGS"
+    # fi
 
     # GUI 模式
 #    if [ "$GUI_MODE" -eq 1 ]; then
@@ -263,6 +265,14 @@ main() {
             break
         fi
     done
+
+    TEST_NAME=$(echo "$EXTRA_ARGS" | sed -n 's/.*+UVM_TESTNAME=\([^ ]*\).*/\1/p')
+
+        # 如果解析失败，给出默认值
+    if [ -z "$TEST_NAME" ]; then
+        echo "警告：未找到 +UVM_TESTNAME，使用默认值"
+        TEST_NAME="default_test"
+    fi
 
     # 解析其他参数
     parse_arguments "$@"

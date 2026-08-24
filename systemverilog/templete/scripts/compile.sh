@@ -21,14 +21,17 @@ SRC_DIR="$PROJECT_ROOT/src"
 TB_DIR="$PROJECT_ROOT/tb"
 INCLUDE_DIR="$PROJECT_ROOT/include"
 BUILD_DIR="$PROJECT_ROOT/build"
-WAVE_DIR="$PROJECT_ROOT/wave"
+LOG_DIR="$PROJECT_ROOT/logs"
+WAVE_DIR="$PROJECT_ROOT/fsdb_wave"
+TOP_NAME="top"
 
 # 创建必要的目录
 mkdir -p "$BUILD_DIR"
 mkdir -p "$WAVE_DIR"
+mkdir -p "$LOG_DIR"
 
 # 日志文件
-LOG_FILE="$BUILD_DIR/compile.log"
+LOG_FILE="$LOG_DIR/compile_${TOP_NAME}.log"
 SIMV_PATH="$BUILD_DIR/simv"
 
 # 显示信息函数
@@ -136,6 +139,7 @@ compile_design() {
 		-timescale=1ns/1ps \
 		+plusarg_save		\
 		+memcbk				\
+        -Mdir="$BUILD_DIR/csrc" \
         $EXTRA_ARGS			\
         "-LDFLAGS -Wl,--no-as-needed" \
 		#-cm line+tgl	\

@@ -14,6 +14,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 BUILD_DIR="$PROJECT_ROOT/build"
 FILELIST="$BUILD_DIR/filelist.f"
+FSDB_DIR="$PROJECT_ROOT/fsdb_wave"
 
 # 检查目录和文件是否存在
 check_prerequisites() {
@@ -36,10 +37,10 @@ find_fsdb_file() {
     # 查找所有.fsdb文件
     while IFS= read -r -d '' file; do
         fsdb_files+=("$file")
-    done < <(find "$BUILD_DIR" -name "*.fsdb" -type f -print0)
+    done < <(find "$FSDB_DIR" -name "*.fsdb" -type f -print0)
     
     if [ ${#fsdb_files[@]} -eq 0 ]; then
-        echo "错误: 在 $BUILD_DIR 中找不到任何.fsdb文件"
+        echo "错误: 在 $FSDB_DIR 中找不到任何.fsdb文件"
         exit 1
     fi
     
@@ -62,7 +63,7 @@ find_fsdb_file() {
         FSDB_FILE="${fsdb_files[0]}"
     fi
     
-    echo "使用FSDB文件: ${FSDB_FILE#$BUILD_DIR/}"
+    echo "使用FSDB文件: ${FSDB_FILE#$FSDB_DIR/}"
 }
 
 # 自动发现ses文件（用于重载模式）

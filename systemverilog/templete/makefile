@@ -1,12 +1,14 @@
 # Makefil
 # 目录配置
 SCRIPTS_DIR = ./scripts
-#默认附加参数 支持通过命令行添加额外的临时参数
+#默认附加参数 支持通过命令行添加额外的临时参数  如：+vcs+finish+500us
 DEFAULT_ARGS_COMPILE = -cm line+tgl
-DEFAULT_ARGS_RUN = -cm line+tgl
+DEFAULT_ARGS_RUN = -cm line+tgl +UVM_TESTNAME=mcdt_test 
 DEFAULT_ARGS_SIM = 
 
-.PHONY: compile run clean sim simreload help cleanall
+.PHONY: all compile run clean sim simreload help cleanall cov
+
+all: compile run
 
 compile:
 	@echo "编译项目..."
@@ -31,10 +33,13 @@ simreload:
 	@echo "using verdi to reload wave..."
 	$(SCRIPTS_DIR)/verdi.sh --reload
 
+cov:
+	@echo "using dve look coverage"
+	dve -covdir build/simv.vdb -full64 &   
 
 cleanall:
 	@echo "clean all file..."
-	rm -rf build/ wave/ logs/ *.log *.fsdb *.vcd csrc/ novas* verdiLog/
+	rm -rf build/ wave/ logs/ *.log *.fsdb *.vcd csrc/ novas* verdiLog/ fsdb_wave/ DVEfiles/ vdCovLog/
 
 help:
 	@echo "可用目标:"
