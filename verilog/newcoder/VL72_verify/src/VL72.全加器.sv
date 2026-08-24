@@ -1,4 +1,4 @@
-// [VL72] Full Adder — copied from nowcoder for verification
+// [VL74] 全加器 — copied from nowcoder for verification
 
 module add_half(
     input         A  ,
