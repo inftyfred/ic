@@ -9,6 +9,7 @@ ic study
 --ic
 
 --systemverilog
+--uvm
 
 ..verilog
 
@@ -28,7 +29,7 @@ ic study
 - used by makefile
 
 ## makefile
-use:
+usage:
 	`make [commend]`
 
 commend can be :
