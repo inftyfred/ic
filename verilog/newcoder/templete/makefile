@@ -36,7 +36,7 @@ simreload:
 
 cleanall:
 	@echo "clean all file..."
-	rm -rf build/ wave/ logs/ *.log *.fsdb *.vcd csrc/ novas* verdiLog/ fsdb_wave/
+	rm -rf build/ wave/ logs/ *.log *.fsdb *.vcd csrc/ novas* verdiLog/ fsdb_wave/ ucli.key
 
 help:
 	@echo "可用目标:"
