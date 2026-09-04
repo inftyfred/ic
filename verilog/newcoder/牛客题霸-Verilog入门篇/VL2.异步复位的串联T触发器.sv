@@ -12,6 +12,17 @@ output reg q
 );
 //*************code***********//
 
+reg q0;
+
+always @(posedge clk or negedge rst) begin
+    if(!rst) begin
+        q0 <= 0;
+        q <= 0;
+    end else begin
+        q0 <= q0 ^ data;
+        q <= q ^ q0;
+    end
+end
 
 //*************code***********//
 endmodule
