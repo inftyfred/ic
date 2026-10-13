@@ -39,8 +39,11 @@ set ld_flags [list \
 ]
 
 # --- 额外 define（可选）---
+		# -timescale=1ns/1ps \n
+		# +plusarg_save		\n
+		# +memcbk				\n
 # 例如: set extra_defines [list "+define+DEBUG" "+define+SIM"]
-set extra_defines [list "-j8"]
+set extra_defines [list "-j8" "-timescale=1ns/1ps"]
 
 # ============================================================
 #  拼接命令
