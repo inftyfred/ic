@@ -15,25 +15,22 @@ module huawei6(
 	output wire clk_out
 );
 //*************code***********//
+reg en_clk0, en_clk1;
 
-// 两路时钟在各自下降沿更新门控使能，保证只在时钟为低电平时切换。
-// en_clk0 与 en_clk1 互斥，避免两路时钟同时驱动输出。
-reg en_clk0;
-reg en_clk1;
-
-// sel=1 选择 clk0，sel=0 选择 clk1。
 always @(negedge clk0 or negedge rst) begin
-	if(!rst)
+	if(!rst) begin
 		en_clk0 <= 1'b0;
-	else
+	end else begin
 		en_clk0 <= !sel && !en_clk1;
+	end
 end
 
 always @(negedge clk1 or negedge rst) begin
-	if(!rst)
+	if(!rst) begin
 		en_clk1 <= 1'b0;
-	else
+	end else begin
 		en_clk1 <= sel && !en_clk0;
+	end
 end
 
 assign clk_out = (clk0 & en_clk0) | (clk1 & en_clk1);
